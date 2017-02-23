@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:slideswitch="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fafafa"
+              android:orientation="vertical">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/id_re_annount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:id="@+id/image_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/trumpet"
+                    />
+
+                <com.msht.master.Controls.AlwaysMarqueeTextView
+                    android:id="@+id/layout_announce"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/image_1"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:textColor="@color/title"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="@dimen/text_20"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray"/>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.msht.master.UIView.CircleImageView
+                    android:id="@+id/iv_headimage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:src="@drawable/default_portrait"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/iv_headimage">
+                    <RelativeLayout
+                        android:id="@+id/layout_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/id_mastername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_20"
+                            android:text="师傅"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/title"
+                            android:textSize="@dimen/text_18"/>
+                        <Button
+                            android:id="@+id/btn_buy_insurance"
+                            android:layout_width="@dimen/margin_100"
+                            android:layout_height="@dimen/margin_35"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="-10dp"
+                            android:background="@drawable/bg_common_button"
+                            android:text="购买保险"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_16"/>
+                        <TextView
+                            android:id="@+id/tv_freeze"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/id_mastername"
+                            android:background="@color/colorPrimary"
+                            android:text="您已被冻结"
+                            android:textColor="@color/white"
+                            android:visibility="visible"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_below="@+id/layout_name"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="温馨提示：为了保障您的权益,请上门服务前购买保险"
+                        android:textColor="@color/topicColor"
+                        android:textSize="@dimen/text_16"/>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background_gray">
+            </View>
+            <!--订单指示-->
+            <RelativeLayout
+                android:id="@+id/layout_work_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/id_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:text="待处理订单："
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:id="@+id/id_ordernum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_toRightOf="@+id/id_text1"
+                    android:text="0"
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_3"
+                    android:layout_toRightOf="@id/id_ordernum"
+                    android:text="单"
+                    android:textSize="@dimen/text_16"/>
+
+                <com.msht.master.UIView.SwitchButton
+                    android:id="@+id/sw_workstatus"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_10"
+                    slideswitch:onColor="@color/colorPrimary"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray">
+            </View>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/background"
+                android:layout_height="match_parent">
+                <!--认证指示-->
+                <include android:visibility="gone" android:id="@+id/layout_identify" layout="@layout/layout_home_identify"/>
+                <include android:visibility="gone" android:id="@+id/layout_vertify" layout="@layout/layout_home_verify"/>
+                <include android:visibility="gone" android:id="@+id/layout_vertifying" layout="@layout/layout_home_vertifying"/>
+                <com.github.jdsjlzx.recyclerview.LuRecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/background"
+                    android:visibility="gone">
+                </com.github.jdsjlzx.recyclerview.LuRecyclerView>
+            </FrameLayout>
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

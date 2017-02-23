@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/id_text7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_centerVertical="true"
+            android:text="技能选项："
+            android:textSize="@dimen/text_18"
+            android:textColor="@color/title"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/id_text8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/id_text7"
+            android:text="（必填，可以多选）"
+            android:textSize="@dimen/text_18"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray"/>
+    <com.msht.master.Controls.MyRecyclerView
+        android:id="@+id/id_skill_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.msht.master.Controls.MyRecyclerView>
+
+</LinearLayout>

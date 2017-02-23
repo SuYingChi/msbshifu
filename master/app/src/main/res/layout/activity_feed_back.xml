@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.msht.master.myview.FeedBack">
+    <!-- 提交反馈意见-->
+    <include layout="@layout/layout_header"/>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <EditText
+           android:id="@+id/id_et_feedidea"
+           android:layout_width="match_parent"
+           android:layout_marginRight="@dimen/margin_10"
+           android:layout_marginLeft="@dimen/margin_10"
+           android:layout_marginTop="@dimen/margin_12"
+           android:layout_height="170dp"
+           android:hint="请输入您的反馈意见"
+           android:padding="@dimen/margin_10"
+           android:gravity="left|top"
+           android:background="@drawable/shape_white_border_rectangle"/>
+   </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/id_btn_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40"
+            android:layout_marginRight="@dimen/margin_50"
+            android:layout_marginLeft="@dimen/margin_50"
+            android:layout_marginBottom="@dimen/margin_12"
+            android:background="@drawable/shape_orange_corner_button"
+            android:text="提交"
+            android:textSize="@dimen/text_18"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+</LinearLayout>

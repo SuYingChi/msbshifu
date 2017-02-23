@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <layer-list>
+            <!--layer-list将item所画的drawable一层层盖在上面-->
+            <item>
+                <shape>
+                    <corners
+                        android:bottomRightRadius="5dp"
+                        android:topRightRadius="5dp"
+                        />
+                    <solid android:color="@color/colorPrimary" />
+                    <padding
+                        android:bottom="2px"
+                        android:left="2px"
+                        android:right="1px"
+                        android:top="2px" />
+                </shape>
+            </item>
+
+            <item >
+                <shape >
+                    <corners
+                        android:bottomRightRadius="4dp"
+                        android:topRightRadius="5dp"
+                        />
+                    <solid android:color="#fff"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners
+                        android:bottomRightRadius="5dp"
+                        android:topRightRadius="5dp"
+                        />
+                    <solid android:color="@color/colorPrimary" />
+                </shape>
+            </item>
+
+        </layer-list>
+    </item>
+</selector>

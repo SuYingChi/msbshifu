@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/bg_item_work_order"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="奖励事由"
+            android:textColor="#444444"
+            android:textSize="@dimen/text_16"/>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="16-12-21 232442"
+            android:textColor="@color/title_tv"/>
+        <View
+            android:id="@id/divider_line"
+            android:layout_width="match_parent"
+            android:background="@color/line_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/tv_text1"
+            android:layout_height="0.5dp"/>
+
+        <TextView
+            android:id="@+id/tv_reword_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_line"
+            android:layout_toLeftOf="@+id/tv_reword_amount"
+            android:layout_marginRight="@dimen/margin_5"
+            android:text="用户好评"
+            android:textColor="#cc000000"
+            android:textSize="@dimen/text_24"/>
+        <TextView
+            android:id="@+id/tv_reword_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_line"
+            android:layout_alignParentRight="true"
+            android:text="￥100"
+            android:textColor="#cc000000"
+            android:textSize="@dimen/text_24"/>
+    </RelativeLayout>
+
+</RelativeLayout>

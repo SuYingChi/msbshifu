@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_identify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_50"
+        android:layout_marginRight="@dimen/margin_50"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/bg_common_button"
+        android:text="申请认证"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_18"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tv_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_view"
+        android:layout_marginLeft="@dimen/margin_50"
+        android:layout_marginRight="@dimen/margin_50"
+        android:layout_marginTop="@dimen/margin_20"
+        android:gravity="center"
+        android:text="提交认证失败"
+        android:textColor="@color/topicColor"
+        android:textSize="@dimen/text_18"/>
+</LinearLayout>

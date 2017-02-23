@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/vertifying"
+            android:src="@drawable/vertifying"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/title"
+        android:text="资料已提交，审核中"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/vertifying"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/desc"
+        android:text="审核结果将会在5个工作日以内完成\n并以短信的形式通知您"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

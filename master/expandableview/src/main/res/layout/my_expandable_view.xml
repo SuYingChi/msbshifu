@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/expandable_view_clickable_content"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/id_tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单编号:"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_tv_1"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_finish_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="12:33"
+            android:textSize="16sp"/>
+
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/tv_order_num"
+            android:layout_marginTop="4dp"
+            android:background="#ccc"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/divider_line">
+
+            <ImageView
+                android:id="@+id/iv_item_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_main_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_item_image"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/iv_item_image"
+                android:text=""
+                android:textColor="#000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_second_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_item_image"
+                android:gravity="bottom"
+                android:layout_alignLeft="@id/tv_main_type"
+                android:layout_below="@id/tv_main_type"
+                android:text=""
+                android:textColor="#cc000000"/>
+
+            <ImageView
+                android:id="@+id/expandable_view_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_expandable_view_chevron"/>
+
+            <TextView
+                android:id="@+id/tv_real_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/expandable_view_right_icon"
+                android:text=""
+                android:textColor="#000"
+                android:textSize="22sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/expandable_view_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/expandable_view_clickable_content"
+        android:orientation="vertical">
+    </LinearLayout>
+</merge>

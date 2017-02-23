@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.msht.master.HomePage">
+
+    <LinearLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶部 -->
+
+        <RelativeLayout
+            android:id="@+id/top_tab"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorPrimary" >
+            <TextView
+                android:id="@+id/tv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:focusable="false"
+                android:text="@string/homepage"
+                android:textSize="@dimen/text_18"
+                android:textStyle="normal"
+                android:textColor="#ffffffff"
+                android:contentDescription="@null" />
+            <ImageView
+                android:id="@+id/id_img_unread"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_35"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/unread_h"/>
+            <ImageView
+                android:id="@+id/id_message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:src="@drawable/message"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/line"
+                android:layout_below="@+id/top_tab"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray" />
+        </RelativeLayout>
+
+        <!-- 底部tab -->
+        <RadioGroup
+            android:id="@+id/radiogroup_main"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:baselineAligned="true"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <RadioButton
+                android:id="@+id/radio_home"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:button="@null"
+                android:textColor="@drawable/radio_home_textcolor"
+                android:textSize="12sp"
+                android:checked="true"
+                android:drawableTop="@drawable/radio_home_button"
+                android:text="首页"
+                android:layout_height="match_parent"/>
+            <RadioButton
+                android:id="@+id/radio_order"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:button="@null"
+                android:textSize="12sp"
+                android:textColor="@drawable/radio_home_textcolor"
+                android:drawableTop="@drawable/radio_order_button"
+                android:text="订单"
+                android:layout_height="match_parent"/>
+            <RadioButton
+                android:id="@+id/radio_me"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:textColor="@drawable/radio_home_textcolor"
+                android:gravity="center"
+                android:button="@null"
+                android:drawableTop="@drawable/radio_my_button"
+                android:text="我的"
+                android:layout_height="match_parent"/>
+        </RadioGroup>
+
+
+        <!-- 内容部分， fragment切换 -->
+
+    </LinearLayout>
+
+</LinearLayout>

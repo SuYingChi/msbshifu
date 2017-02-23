@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/white">
+    <ImageView
+        android:id="@+id/id_img2"
+        android:layout_width="@dimen/margin_25"
+        android:layout_height="@dimen/margin_25"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:src="@drawable/order_detail_uses_pay"/>
+    <TextView
+        android:id="@+id/id_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/id_img2"
+        android:text="用户支付情况"
+        android:textColor="@color/title"
+        android:textSize="@dimen/text_18"/>
+
+    <View
+        android:id="@+id/divider_line1"
+        android:layout_below="@id/id_img2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray">
+    </View>
+    <LinearLayout
+        android:layout_toRightOf="@id/id_img2"
+        android:layout_below="@id/divider_line1"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/id_text7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:text="已使用代金券："
+                android:textColor="@color/title"
+                android:textSize="@dimen/text_18"/>
+
+            <TextView
+                android:id="@+id/tv_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorPrimary"
+                android:text=""
+                android:textSize="22sp"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_gray"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:id="@+id/tv_fact_pay"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_30"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textSize="@dimen/text_22"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:text="订单实付："
+                android:textColor="@color/title"
+                android:textSize="@dimen/text_18"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_gray"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

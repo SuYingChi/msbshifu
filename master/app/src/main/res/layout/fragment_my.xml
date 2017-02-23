@@ -1,0 +1,242 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/background"
+             tools:context="com.msht.master.fragment.MyFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.msht.master.UIView.CircleImageView
+                    android:id="@+id/id_portrait"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:src="@drawable/default_portrait"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/id_portrait">
+                    <RelativeLayout
+                        android:id="@+id/layout_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/id_mastername"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/title"
+                            android:textSize="@dimen/text_18"/>
+                        <Button
+                            android:id="@+id/btn_buy_insurance"
+                            android:layout_width="@dimen/margin_100"
+                            android:layout_height="@dimen/margin_35"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="-10dp"
+                            android:background="@drawable/bg_common_button"
+                            android:text="购买保险"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_16"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/bg_balance"
+                        android:layout_below="@+id/layout_name"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:src="@drawable/balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/id_text1"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="余额："
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_16"/>
+                        <TextView
+                            android:id="@+id/id_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_10"
+                            android:layout_toRightOf="@+id/id_text1"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_16"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.msht.master.Controls.MyFragmentButton
+                    android:background="@drawable/bg_mb_button"
+                    android:id="@+id/mb_my_bankcark"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:img="@drawable/bank_card"
+                    app:title2="银行卡">
+
+                </com.msht.master.Controls.MyFragmentButton>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@color/line_gray">
+                </View>
+
+                <com.msht.master.Controls.MyFragmentButton
+                    android:background="@drawable/bg_mb_button"
+                    android:id="@+id/mb_my_wallet"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:img="@drawable/my_wallet"
+                    app:title2="钱包">
+
+                </com.msht.master.Controls.MyFragmentButton>
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@color/line_gray">
+                </View>
+
+                <com.msht.master.Controls.MyFragmentButton
+                    android:background="@drawable/bg_mb_button"
+                    android:id="@+id/mb_my_evalute"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:img="@drawable/evalute_my_h"
+                    app:title2="评价">
+
+                </com.msht.master.Controls.MyFragmentButton>
+            </LinearLayout>
+
+
+            <com.msht.master.Controls.ImageTextButton
+                android:id="@+id/id_data_layout"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_imagetext_button"
+                android:clickable="true"
+                app:ImageLeft="@drawable/my_data_h"
+                app:ImageRight="@drawable/forward_2x"
+                app:text="我的资料"
+                app:textColor="#333333"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_height="0.5dp"
+                android:background="@color/background_gray"/>
+
+            <com.msht.master.Controls.ImageTextButton
+                android:id="@+id/id_price_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_imagetext_button"
+                android:clickable="true"
+                app:ImageLeft="@drawable/price_menu"
+                app:ImageRight="@drawable/forward_2x"
+                app:text="价格手册"
+                app:textColor="#333333"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_height="0.5dp"
+                android:background="@color/background_gray"/>
+
+            <com.msht.master.Controls.ImageTextButton
+                android:id="@+id/learn_rule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_imagetext_button"
+                android:clickable="true"
+                app:ImageLeft="@drawable/learn_rule"
+                app:ImageRight="@drawable/forward_2x"
+                app:text="规则学习"
+                app:textColor="#333333"/>
+
+            <com.msht.master.Controls.ImageTextButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/id_sevice_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_imagetext_button"
+                android:clickable="true"
+                app:ImageLeft="@drawable/sevice_phone_h"
+                app:ImageRight="@drawable/forward_2x"
+                app:text="客服电话：963666"
+                app:textColor="#333333"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray"/>
+
+            <com.msht.master.Controls.ImageTextButton
+                android:id="@+id/id_aboutmine_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_imagetext_button"
+                android:clickable="true"
+                app:ImageLeft="@drawable/about_mine"
+                app:ImageRight="@drawable/forward_2x"
+                app:text="关于我们"
+                app:textColor="#333333"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

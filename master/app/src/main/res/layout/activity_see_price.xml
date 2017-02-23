@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.msht.master.HtmlWeb.SeePrice">
+    <include layout="@layout/layout_header"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <WebView
+            android:id="@+id/id_web_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </WebView>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </FrameLayout>
+
+</LinearLayout>

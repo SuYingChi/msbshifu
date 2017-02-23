@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <!--我的评价-->
+    <include layout="@layout/layout_header"/>
+
+    <RadioGroup
+        android:id="@+id/radio_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_10"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_button_all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button_left_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="全部评价"
+            android:textColor="@drawable/radio_button_textcolor"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_button_good"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button_center_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="好评"
+            android:textColor="@drawable/radio_button_textcolor"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_button_middle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button_center_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="中评"
+            android:textColor="@drawable/radio_button_textcolor"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/radio_button_bad"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_button_right_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="差评"
+            android:textColor="@drawable/radio_button_textcolor"
+            android:textSize="16sp"/>
+    </RadioGroup>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.jdsjlzx.recyclerview.LuRecyclerView
+                android:id="@+id/recycler_view"
+                android:background="@color/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.github.jdsjlzx.recyclerview.LuRecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </FrameLayout>
+
+</LinearLayout>

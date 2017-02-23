@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:descendantFocusability="blocksDescendants">
+    <RelativeLayout
+        android:id="@+id/id_re_bankcard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/margin_10"
+        android:background="@drawable/merchants_bank_xh">
+        <TextView
+            android:id="@+id/id_tv_bankcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="55dp"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:text="**** **** **** **5828"
+            android:textSize="@dimen/text_20"
+            android:textColor="@color/white"/>
+        <ImageView
+            android:src="@drawable/forward_white"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>

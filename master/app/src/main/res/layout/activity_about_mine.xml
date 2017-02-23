@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.msht.master.myview.AboutMine">
+
+    <include layout="@layout/layout_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo_h"/>
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logo"
+            android:textColor="@color/desc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text=""/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_version"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="互联网接单神器"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp"/>
+    </RelativeLayout>
+
+    <com.msht.master.Controls.ImageTextButton
+        android:layout_marginTop="10dp"
+        android:id="@+id/id_idea_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_imagetext_button"
+        android:clickable="true"
+        app:ImageLeft="@drawable/idea_fedback_h"
+        app:ImageRight="@drawable/forward_2x"
+        app:text="意见反馈"
+        app:textColor="#333333"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray"/>
+    <com.msht.master.Controls.ImageTextButton
+        android:id="@+id/itb_join_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_imagetext_button"
+        android:clickable="true"
+        app:ImageLeft="@drawable/aboutmine_joinus"
+        app:ImageRight="@drawable/forward_2x"
+        app:text="加盟协议"
+        app:textColor="#333333"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray"/>
+
+        <Button
+            android:id="@+id/id_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:layout_marginLeft="@dimen/margin_50"
+            android:layout_marginRight="@dimen/margin_50"
+            android:layout_marginTop="@dimen/margin_40"
+            android:background="@drawable/bg_common_button"
+            android:text="退出登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="CopyRight@2017"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

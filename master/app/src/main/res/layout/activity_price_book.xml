@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical"
+              tools:context="com.msht.master.FunctionView.PriceBook">
+
+    <!--价格手册-->
+    <include layout="@layout/layout_header"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/id_img1"
+                    android:layout_width="@dimen/margin_35"
+                    android:layout_height="@dimen/margin_35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:src="@drawable/sanitary_appliance"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_12"
+                    android:layout_toRightOf="@+id/id_img1"
+                    android:text="洁具卫浴"
+                    android:textColor="@color/title"
+                    android:textSize="@dimen/text_18"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/line_gray"
+                android:layout_height="0.5dp"/>
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_wiring"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_wiring"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/electric_wiring_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_wiring"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="水管"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_waterpipe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_waterpipe"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/tag_waterpipe_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_waterpipe"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="水龙头"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_sanitary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_sanitary"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/sanitary_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_sanitary"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="花洒"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_closestool"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageView
+                        android:id="@+id/id_img_closestool"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/closestool_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_closestool"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="马桶"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_li_bathroom_cabinet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_bathroom_cabinet"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/bathroom_cabinet_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_bathroom_cabinet"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="浴室柜"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_li7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img7"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/tag_waterpipe_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img7"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="水龙头"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_li6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img6"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/sanitary_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img6"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="洁具卫浴"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_li5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img5"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/closestool_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img5"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="马桶"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50">
+
+                <ImageView
+                    android:id="@+id/id_img2"
+                    android:layout_width="@dimen/margin_35"
+                    android:layout_height="@dimen/margin_35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:src="@drawable/electronic_devices"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_12"
+                    android:layout_toRightOf="@+id/id_img2"
+                    android:text="家电维修清洗"
+                    android:textColor="@color/title"
+                    android:textSize="@dimen/text_18"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/line_gray"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_aircondition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_aircondition"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/air_condition_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_aircondition"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="空调维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_washing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_washing"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/washing_machine_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_washing"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="洗衣机维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_refrigerator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_refrigerator"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/refrigerator_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_refrigerator"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="冰箱维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_calorifier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_calorifier"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotwater_calorifier_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_calorifier"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="热水器维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_computer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_computer"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/computer_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_computer"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="电脑维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_gasoven"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_gasoven"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/gas_oven_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_gasoven"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="燃气灶维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_hotteaspirante"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_hotteaspirante"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotte_aspirante_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_hotteaspirante"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="油烟机维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_li_disinfection_cab"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_disinfection_cab"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/disinfection_cabinet_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_disinfection_cab"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="消毒柜维修"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_re_gasoven_lean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_gasoven_lean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/gas_oven_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_gasoven_lean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="燃气灶清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_hotwater_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_hotwater_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotwater_calorifier_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_hotwater_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="热水器清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_hotteaspirante_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_hotteaspirante_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotte_aspirante_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_hotteaspirante_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="油烟机清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_aircondition_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_aircondition_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/air_condition_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_aircondition_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="空调清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_re_refrigerator_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_refrigerator_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/refrigerator_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_refrigerator_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="冰箱清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_washing_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_washing_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/washing_machine_clean"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_washing_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="洗衣机清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotte_aspirante_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="油烟机清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re_microwave_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img_microwave_clean"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/microwave_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_microwave_clean"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="空调清洗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50">
+
+                <ImageView
+                    android:id="@+id/id_img3"
+                    android:layout_width="@dimen/margin_35"
+                    android:layout_height="@dimen/margin_35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:src="@drawable/lanterns_h"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_12"
+                    android:layout_toRightOf="@+id/id_img3"
+                    android:text="灯具电路"
+                    android:textColor="@color/title_tv"
+                    android:textSize="@dimen/text_18"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/line_gray"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_dianlu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_dianlu"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/dianlu_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_dianlu"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="电路"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_socket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_socket"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/socket_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_socket"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="开关插座"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_lenterns"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_lenterns"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/lenterns_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_lenterns"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="灯具"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_re1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/id_img_re1"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hotwater_calorifier_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_re1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="热水器"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_50">
+
+                <ImageView
+                    android:id="@+id/id_img4"
+                    android:layout_width="@dimen/margin_35"
+                    android:layout_height="@dimen/margin_35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:src="@drawable/other_repair"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_12"
+                    android:layout_toRightOf="@+id/id_img4"
+                    android:text="其他维修"
+                    android:textColor="@color/title_tv"
+                    android:textSize="@dimen/text_18"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/line_gray"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_openlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_openlock"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/openlock_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_openlock"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="开锁换锁"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_pipeline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_pipeline"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/pipeline_dredge_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_pipeline"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="管道疏通"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_punching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_punching"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/punching_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_punching"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="墙面打孔"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_furniture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_furniture"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/furniture_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_furniture"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="家具"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_door"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_door"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/door_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_door"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="门"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_window"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_window"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/window_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_window"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="窗"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_hardware"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_hardware"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/hardware_yijia_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_hardware"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="衣架五金"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/id_layout_burglarmesh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/id_img_burglarmesh"
+                        android:layout_width="@dimen/margin_50"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/burglar_mesh_h"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/id_img_burglarmesh"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:text="防盗网"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_14"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

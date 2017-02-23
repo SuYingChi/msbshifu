@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.msht.master.FunctionView.ApplyIdentify">
+
+    <include layout="@layout/layout_header"/>
+    <com.msht.master.Controls.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <include layout="@layout/layout_apply_identify_basic_info"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <include layout="@layout/layout_apply_inentify_add_idcard"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <include layout="@layout/layout_apply_identify_region"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <include layout="@layout/layout_apply_identify_skill"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/background"/>
+            <include layout="@layout/layout_apply_identify_addcert"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_gray">
+                <Button
+                    android:id="@+id/id_btn_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:layout_marginRight="@dimen/margin_50"
+                    android:layout_marginLeft="@dimen/margin_50"
+                    android:layout_marginBottom="@dimen/margin_12"
+                    android:background="@drawable/bg_common_button"
+                    android:text="提交"
+                    android:textSize="@dimen/text_18"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </com.msht.master.Controls.MyScrollview>
+</LinearLayout>

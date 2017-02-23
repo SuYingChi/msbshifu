@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_tip_orderno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单编号:"
+            android:textColor="#333333"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_toRightOf="@id/tv_tip_orderno"
+            android:text="123243255345"
+            android:textColor="#333333"/>
+
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="待接单"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_order_type"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/electronic_devices"/>
+
+        <TextView
+            android:id="@+id/tv_tip_order_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_order_type"
+            android:text="维修种类："
+            android:textColor="@color/title"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tv_second_type"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_tip_order_type"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_call_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_imagetext_button">
+
+        <ImageView
+            android:id="@+id/iv_callphone"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/phone_img_h"/>
+        <RelativeLayout
+            android:id="@+id/layout_contact"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@id/iv_callphone"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_tip_order_detail_phone"
+                android:layout_width="25dp"
+                android:layout_centerVertical="true"
+                android:layout_height="25dp"
+                android:src="@drawable/order_detail_phone"/>
+            <TextView
+                android:id="@+id/tv_tip_usesnane"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_tip_order_detail_phone"
+                android:text="联  系  人："
+                android:textColor="@color/title"
+                android:textSize="@dimen/text_18"/>
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_tip_usesnane"
+                android:text=""
+                android:textColor="#555555"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_phone_num"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_tip_order_detail_phone"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/tv_username"
+                android:text="15501863131"
+                android:textColor="#555555"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/layout_contact"
+            android:layout_toLeftOf="@id/iv_callphone"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_tip_order_detail_address"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/order_detail_address"/>
+            <TextView
+                android:id="@+id/tv_tip_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_tip_order_detail_address"
+                android:text="地        址："
+                android:textColor="@color/title"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_tip_address"
+                android:text=""
+                android:textColor="#555555"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp">
+        <RelativeLayout
+            android:id="@+id/layout_appoint_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_tip_order_detail_time"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/order_detail_time"/>
+
+            <TextView
+                android:id="@+id/tv_tip_appoint_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/iv_tip_order_detail_time"
+                android:text="预约时间："
+                android:textColor="@color/title"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_appoint_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_tip_appoint_time"
+                android:text=""
+                android:textColor="#555555"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/layout_appoint_time">
+            <TextView
+                android:id="@+id/tv_tip_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35dp"
+                android:text="下单时间："
+                android:textColor="#333333"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_time"
+                android:textSize="18sp"
+                android:textColor="@color/desc"
+                android:text=""
+                android:layout_toRightOf="@id/tv_tip_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_tip_order_detail_problem"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/order_detail_problem"/>
+
+        <TextView
+            android:id="@+id/tv_tip_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_tip_order_detail_problem"
+            android:text="问题描述："
+            android:textColor="@color/title"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tv_problem_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_tip_desc"
+            android:layout_below="@id/tv_tip_desc"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="#555555"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+</LinearLayout>

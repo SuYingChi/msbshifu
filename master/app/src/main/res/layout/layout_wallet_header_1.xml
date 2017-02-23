@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/my_wallet_income_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_5"
+            android:text="@string/my_income"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_22"/>
+
+        <TextView
+            android:id="@+id/tv_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_25"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.msht.master.Controls.WalletButton
+            android:id="@+id/wb_balance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_mb_button"
+            android:layout_weight="1"
+            app:Title="我的余额"
+            app:desc=""
+            app:imgsrc="@drawable/my_balance_h"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/line_gray"/>
+
+        <com.msht.master.Controls.WalletButton
+            android:id="@+id/wb_reword_amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:Title="奖励金额"
+            android:background="@drawable/bg_mb_button"
+            app:desc=""
+            app:imgsrc="@drawable/reward_amount_h"/>
+
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/line_gray"/>
+
+        <com.msht.master.Controls.WalletButton
+            android:id="@+id/wb_assurance"
+            android:layout_width="0dp"
+            android:background="@drawable/bg_mb_button"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:Title="质保金"
+            app:desc=""
+            app:imgsrc="@drawable/quality_assurance_h"/>
+    </LinearLayout>
+</LinearLayout>
