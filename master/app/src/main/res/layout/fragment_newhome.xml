@@ -29,7 +29,6 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/trumpet"
                     />
-
                 <com.msht.master.Controls.AlwaysMarqueeTextView
                     android:id="@+id/layout_announce"
                     android:layout_width="match_parent"
@@ -174,7 +173,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/margin_10"
-                    slideswitch:onColor="@color/colorPrimary"/>
+                    slideswitch:onColor="@color/switchButton_blue"/>
 
             </RelativeLayout>
 

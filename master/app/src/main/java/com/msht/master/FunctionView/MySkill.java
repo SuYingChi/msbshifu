@@ -21,6 +21,7 @@ import com.msht.master.Constants.NetConstants;
 import com.msht.master.Constants.SPConstants;
 import com.msht.master.Controls.FullyLinearLayoutManager;
 import com.msht.master.Adapter.SkilllMainTypeAdapter;
+import com.msht.master.Controls.MyRecyclerView;
 import com.msht.master.Model.BaseModel;
 import com.msht.master.Model.DistrictModel;
 import com.msht.master.Model.RepairCategoryModel;
@@ -45,7 +46,7 @@ public class MySkill extends AppCompatActivity {
 
     private CustomDialog customDialog;
     private String token;
-    private RecyclerView mRecyclerView;
+    private MyRecyclerView mRecyclerView;
     private Button btn_send;
     private ArrayList<Integer> selectedSkill = new ArrayList<>();
 
@@ -66,12 +67,11 @@ public class MySkill extends AppCompatActivity {
         getSkillData();
         initEvent();
     }
-
     private void initEvent() {
         skilllMainTypeAdapter.SetOnChagedListener(new SkilllMainTypeAdapter.OnChangedListener() {
             @Override
             public void Changed(View view, int mainPosition, int secondPosition) {
-                btn_send.setVisibility(View.VISIBLE);
+                btn_send.setEnabled(true);
             }
         });
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -137,11 +137,12 @@ public class MySkill extends AppCompatActivity {
     }
 
     private void initView() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_my_skill);
+        mRecyclerView = (MyRecyclerView) findViewById(R.id.recycler_my_skill);
         mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(getApplicationContext()));
         skilllMainTypeAdapter = new SkilllMainTypeAdapter(getApplicationContext());
         mRecyclerView.setAdapter(skilllMainTypeAdapter);
         btn_send = (Button) findViewById(R.id.btn_send);
+        btn_send.setEnabled(false);
         tv_isvalid = (TextView) findViewById(R.id.tv_isvalid);
     }
 
@@ -169,18 +170,15 @@ public class MySkill extends AppCompatActivity {
         public SkillHandler(MySkill object) {
             super(object);
         }
-
         @Override
         public void onSuccess(MySkill object, Message msg) {
             object.getSkillDataSuccess(msg);
         }
-
         @Override
         public void onFinilly(MySkill object) {
             object.customDialog.dismiss();
         }
     }
-
     private void getSkillDataSuccess(Message msg) {
         try {
             Gson gson = new Gson();
@@ -195,10 +193,10 @@ public class MySkill extends AppCompatActivity {
                     boolean validStatus = getValidStatus(data);
                     if(validStatus){
                         tv_isvalid.setVisibility(View.VISIBLE);
-                        btn_send.setEnabled(false);
+                       // btn_send.setEnabled(false);
                     }else{
                         tv_isvalid.setVisibility(View.GONE);
-                        btn_send.setEnabled(true);
+                      //  btn_send.setEnabled(true);
                     }
                     skilllMainTypeAdapter.addAll(data);
                 }

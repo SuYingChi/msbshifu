@@ -23,5 +23,5 @@
         android:layout_marginTop="@dimen/margin_5"
         android:text="银行卡"
         android:textColor="#333333"
-        android:textSize="@dimen/text_18"/>
+        android:textSize="@dimen/text_16"/>
 </RelativeLayout>

@@ -31,37 +31,35 @@ public class MyWorkOrderAdapter extends ListBaseAdapter<OrderModel.OrderDetailMo
         switch (model.status){
             case "3":
                 viewHolder.tv_status.setText("待接单");
-                viewHolder.iv_callphone.setVisibility(View.VISIBLE);
                 break;
             case "4":
                 viewHolder.tv_status.setText("已转单");
-                viewHolder.iv_callphone.setVisibility(View.VISIBLE);
                 break;
             case "5":
-                viewHolder.tv_status.setText("服务中");
-                viewHolder.iv_callphone.setVisibility(View.VISIBLE);
+                viewHolder.tv_status.setText("已接单");
                 break;
             case "6":
                 viewHolder.tv_status.setText("待支付");
-                viewHolder.iv_callphone.setVisibility(View.VISIBLE);
                 break;
             case "7":
                 viewHolder.tv_status.setText("待评价");
-                viewHolder.iv_callphone.setVisibility(View.INVISIBLE);
                 break;
             case "8":
                 viewHolder.tv_status.setText("已完成");
-                viewHolder.iv_callphone.setVisibility(View.INVISIBLE);
+                break;
+            case "10":
+                viewHolder.tv_status.setText("退款");
+                break;
+            case "11":
+                viewHolder.tv_status.setText("服务中");
                 break;
         }
         viewHolder.tv_order_num.setText(model.id);
         viewHolder.tv_order_type.setText(model.category);
         viewHolder.tv_address.setText(model.address);
         viewHolder.tv_time.setText(model.time);
-
-
+        viewHolder.tv_username.setText(model.username);
     }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new MyWorkOrderViewHolder(mLayoutInflater.inflate(R.layout.item_work_order, parent, false));
@@ -71,8 +69,8 @@ public class MyWorkOrderAdapter extends ListBaseAdapter<OrderModel.OrderDetailMo
         private final TextView tv_time;
         private final TextView tv_order_type;
         private final TextView tv_address;
-        private final ImageView iv_callphone;
         private final TextView tv_detail;
+        private final TextView tv_username;
         private final TextView tv_status;
 
         public MyWorkOrderViewHolder(View itemView) {
@@ -82,8 +80,8 @@ public class MyWorkOrderAdapter extends ListBaseAdapter<OrderModel.OrderDetailMo
             tv_order_type = (TextView) itemView.findViewById(R.id.tv_order_type);
             tv_status = (TextView) itemView.findViewById(R.id.tv_status);
             tv_address = (TextView) itemView.findViewById(R.id.tv_address);
-            iv_callphone = (ImageView) itemView.findViewById(R.id.iv_callphone);
             tv_detail = (TextView) itemView.findViewById(R.id.tv_detail);
+            tv_username=(TextView) itemView.findViewById(R.id.id_username);
         }
     }
     public static class SpaceItemDecoration extends RecyclerView.ItemDecoration{

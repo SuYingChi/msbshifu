@@ -1,6 +1,7 @@
 package com.msht.master.FunctionView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -42,6 +43,9 @@ public class SubmitBill extends AppCompatActivity{
     private CustomDialog customDialog;
     private String id;
     private String token;
+    private String detect_fee;
+    private String material_fee;
+    private String serve_fee;
     private int SubmitCode=0x001;
 
     private Handler submitHandler =new SubmitHandler(this);
@@ -51,7 +55,11 @@ public class SubmitBill extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill);
         token = (String) SharedPreferencesUtils.getData(getApplicationContext(), SPConstants.TOKEN, "");
-        id = getIntent().getStringExtra("id");
+        Intent data=getIntent();
+        id = data.getStringExtra("id");
+        detect_fee=data.getStringExtra("detect_fee");
+        material_fee=data.getStringExtra("material_fee");
+        serve_fee=data.getStringExtra("serve_fee");
         customDialog = new CustomDialog(this, "正在加载...");
         initHeaderTitle();
         initView();
@@ -63,6 +71,11 @@ public class SubmitBill extends AppCompatActivity{
         et_detect.addTextChangedListener(myTextWatcher);
         et_material.addTextChangedListener(myTextWatcher);
         et_serve.addTextChangedListener(myTextWatcher);
+
+        et_detect.setText(detect_fee);
+        et_material.setText(material_fee);
+        et_serve.setText(serve_fee);
+
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,8 +95,8 @@ public class SubmitBill extends AppCompatActivity{
         tv_total = (TextView) findViewById(R.id.tv_total);
         et_memo = (EditText) findViewById(R.id.et_memo);
         btn_submit = (Button) findViewById(R.id.btn_submit);
-    }
 
+    }
     private void initHeaderTitle() {
         findViewById(R.id.id_goback).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,12 +108,10 @@ public class SubmitBill extends AppCompatActivity{
         tv_title.setText("账单");
     }
     public class MyTextWatcher implements TextWatcher {
-
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
         }
-
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             double totals = 0.0;

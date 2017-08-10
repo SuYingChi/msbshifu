@@ -11,40 +11,52 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-
         <LinearLayout
+            android:id="@+id/id_layout_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <include layout="@layout/layout_order_typeinfo"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background"/>
+            <include layout="@layout/layout_customer_info"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background"/>
+            <include android:id="@+id/id_layout_repair" layout="@layout/layout_repair_info"/>
+            <include android:id="@+id/id_before_picture"
+                layout="@layout/layout_before_picture_convert"
+                android:visibility="gone"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background"/>
+            <!--
             <include layout="@layout/layout_workorder_desc"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"/>
-
-            <include
-                android:id="@+id/layout_workdetail_pic"
-                layout="@layout/layout_workdetail_pic"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"/>
-
+            -->
             <include
                 android:id="@+id/layout_expanse_bill"
                 android:visibility="gone"
                 layout="@layout/layout_expanse_bill"/>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="8dp"/>
-
+            <include android:id="@+id/id_warranty_layout" layout="@layout/layout_warranty_card"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background"/>
             <include
-                android:id="@+id/layout_user_bill_pay"
-                android:visibility="gone"
-                layout="@layout/layout_user_bill_pay"/>
+                android:id="@+id/layout_user_bill_pay" android:visibility="gone"
+                layout="@layout/layout_payfee_info"/>
+            <include android:visibility="gone" android:id="@+id/layout_control" layout="@layout/layout_workdetail_button"/>
         </LinearLayout>
     </com.msht.master.Controls.MyScrollview>
+    <!--
    <include android:visibility="gone" android:id="@+id/layout_control" layout="@layout/layout_workdetail_control"/>
+   -->
 </LinearLayout>

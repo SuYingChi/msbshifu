@@ -39,20 +39,6 @@ public class SkilllMainTypeAdapter extends ListBaseAdapter<RepairCategoryModel.M
         isValid=getValidStatus(mDataList);
         RepairCategoryModel.MainCategory mainCategory = mDataList.get(position);
         MainViewHolder viewHolder = (MainViewHolder) holder;
-        switch (mainCategory.id){
-            case 1:
-                viewHolder.iv_type.setImageResource(R.drawable.sanitary_appliance);
-                break;
-            case 2:
-                viewHolder.iv_type.setImageResource(R.drawable.electronic_devices);
-                break;
-            case 3:
-                viewHolder.iv_type.setImageResource(R.drawable.lanterns_h);
-                break;
-            case 4:
-                viewHolder.iv_type.setImageResource(R.drawable.other_repair);
-                break;
-        }
         viewHolder.tv_type_name.setText(mainCategory.name);
         SecondAdapter secondAdapter = new SecondAdapter(mContext,isValid);
         secondAdapter.SetOnItemCheckChangedListener(new SecondAdapter.OnItemCheckChangedListener() {
@@ -72,17 +58,16 @@ public class SkilllMainTypeAdapter extends ListBaseAdapter<RepairCategoryModel.M
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new MainViewHolder(mLayoutInflater.inflate(R.layout.item_skill_main_type, parent, false));
     }
-
     private class MainViewHolder extends RecyclerView.ViewHolder {
 
 
-        private final ImageView iv_type;
+      //  private final ImageView iv_type;
         private final TextView tv_type_name;
         private final RecyclerView recycler_second_type;
 
         public MainViewHolder(View itemView) {
             super(itemView);
-            iv_type = (ImageView) itemView.findViewById(R.id.iv_type);
+           // iv_type = (ImageView) itemView.findViewById(R.id.iv_type);
             tv_type_name = (TextView) itemView.findViewById(R.id.tv_type_name);
             recycler_second_type = (RecyclerView) itemView.findViewById(R.id.recycler_second_type);
         }
@@ -92,8 +77,7 @@ public class SkilllMainTypeAdapter extends ListBaseAdapter<RepairCategoryModel.M
     public void SetOnChagedListener(OnChangedListener listener){
         this.listener=listener;
     }
-
-   public interface OnChangedListener{
+    public interface OnChangedListener{
        void Changed(View view,int mainPosition,int secondPosition);
    }
 

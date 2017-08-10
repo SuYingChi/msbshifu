@@ -18,6 +18,7 @@ public class IncomeModel extends BaseModel{
         public String order_no;
         public String time;
         public int order_type;//订单大类Id
+        public String parent_type_name;
         public String type_name;
         public double real_amount;
         public double total_amount;

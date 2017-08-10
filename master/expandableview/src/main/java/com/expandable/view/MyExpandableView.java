@@ -24,10 +24,7 @@ import java.util.List;
 
 public class MyExpandableView extends RelativeLayout {
     private static final int DURATION = 400;
-
     private float DEGREES=180f;
-
-
     private RelativeLayout clickableLayout;
 
     private LinearLayout contentLayout;
@@ -62,12 +59,9 @@ public class MyExpandableView extends RelativeLayout {
         super(context, attrs, defStyle);
         init();
     }
-
     private void init() {
         inflate(getContext(), R.layout.my_expandable_view, this);
-
         outsideContentLayoutList = new ArrayList<>();
-
         tv_order_num = (TextView) findViewById(R.id.tv_order_num);
         tv_finish_time = (TextView) findViewById(R.id.tv_finish_time);
         tv_main_type = (TextView) findViewById(R.id.tv_main_type);
@@ -78,9 +72,7 @@ public class MyExpandableView extends RelativeLayout {
         contentLayout = (LinearLayout) findViewById(R.id.expandable_view_content_layout);
         iv_item_image = (ImageView) findViewById(R.id.iv_item_image);
         rightIcon = (ImageView) findViewById(R.id.expandable_view_right_icon);
-
         contentLayout.setVisibility(GONE);
-
         clickableLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +83,6 @@ public class MyExpandableView extends RelativeLayout {
                 }
             }
         });
-
-
         //Add onPreDrawListener
         contentLayout.getViewTreeObserver().addOnPreDrawListener(
                 new ViewTreeObserver.OnPreDrawListener() {
@@ -110,8 +100,6 @@ public class MyExpandableView extends RelativeLayout {
                     }
                 });
     }
-
-
     public void SetOrderNumber(String text){
         tv_order_num.setText(text);
     }

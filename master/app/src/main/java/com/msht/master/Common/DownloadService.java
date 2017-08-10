@@ -9,13 +9,14 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import com.msht.minshengbao.R;
-import com.msht.minshengbao.Utils.SharedPreferencesUtil;
+import com.msht.master.R;
+import com.msht.master.Utils.SharedPreferencesUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +28,7 @@ import java.net.URL;
 public class DownloadService extends Service {
     public static final String DOWNLOAD_PATH =
             Environment.getExternalStorageDirectory().getAbsolutePath()+
-                    "/downloads/";
+                    "/Msdownloads/";
     public static final String TAG = "download";
     private String url;//下载链接
     private int length;//文件长度
@@ -58,7 +59,7 @@ public class DownloadService extends Service {
                     Toast.makeText(DownloadService.this, "下载地址错误",Toast.LENGTH_SHORT).show();
                     break;
                 case NET_ERROR:
-                    Toast.makeText(DownloadService.this, "连接失败，请检查网络设置",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DownloadService.this, "相应码="+msg.obj.toString()+"连接失败，请检查网络设置",Toast.LENGTH_SHORT).show();
             }
         };
     };
@@ -161,7 +162,7 @@ public class DownloadService extends Service {
                 raf.seek(start);
                 long mFinished = 0;
                 //开始下载
-                if(conn.getResponseCode() ==SC_OK){
+                if(conn.getResponseCode() ==SC_OK||conn.getResponseCode()==206){
                     //LogUtil.i("下载开始了。。。");
                     //读取数据
                     input = conn.getInputStream();
@@ -256,7 +257,7 @@ public class DownloadService extends Service {
      * @param file    APK文件
      */
     public static void installApk(Context context, File file) {
-        SharedPreferencesUtil.Clear(context,"open_app");//清除原有数据
+        SharedPreferencesUtils.clearData(context);
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(Intent.ACTION_VIEW);

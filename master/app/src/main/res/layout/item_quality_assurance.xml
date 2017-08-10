@@ -29,7 +29,7 @@
             android:text="16-12-21 232442"
             android:textColor="@color/desc"/>
         <View
-            android:id="@id/divider_line"
+            android:id="@+id/divider_line"
             android:layout_width="match_parent"
             android:background="@color/line_gray"
             android:layout_marginTop="5dp"
@@ -39,21 +39,23 @@
 
         <TextView
             android:id="@+id/tv_info"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/divider_line"
+            android:layout_below="@+id/divider_line"
+            android:layout_toLeftOf="@+id/tv_amount"
+            android:layout_marginRight="@dimen/margin_10"
             android:text="用户好评"
             android:textColor="#cc000000"
-            android:textSize="@dimen/text_24"/>
+            android:textSize="@dimen/text_20"/>
         <TextView
             android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/divider_line"
+            android:layout_below="@+id/divider_line"
             android:layout_alignParentRight="true"
             android:text="￥100"
             android:textColor="#cc000000"
-            android:textSize="@dimen/text_24"/>
+            android:textSize="@dimen/text_20"/>
     </RelativeLayout>
 
 </RelativeLayout>

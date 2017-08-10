@@ -37,7 +37,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:text="用户不能接受维修价格"
             android:textSize="@dimen/text_16"/>
         <View
@@ -52,7 +52,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:text="预约时间师傅无法上门服务"
             android:textSize="@dimen/text_16"/>
         <View
@@ -67,7 +67,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:text="缺少专业维修工具"
             android:textSize="@dimen/text_16"/>
         <View
@@ -82,7 +82,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:text="没有合适的配件"
             android:textSize="@dimen/text_16"/>
         <View
@@ -97,7 +97,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:text="撤销订单"
             android:textSize="@dimen/text_16"/>
         <View
@@ -112,7 +112,7 @@
             android:button="@null"
             android:layout_marginRight="@dimen/margin_10"
             android:layout_marginLeft="@dimen/margin_10"
-            android:drawableRight="@drawable/selector_my_checkbox"
+            android:drawableRight="@drawable/selector_my_radiobutton"
             android:drawablePadding="@dimen/margin_45"
             android:text="其他原因"
             android:textSize="@dimen/text_16"/>

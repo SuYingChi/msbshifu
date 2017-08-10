@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.msht.master.FunctionView.ApplyIdentify">
-
     <include layout="@layout/layout_header"/>
     <com.msht.master.Controls.MyScrollview
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:background="@color/background"/>
-            <include layout="@layout/layout_apply_identify_region"/>
+            <include layout="@layout/layout_select_city_district"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
@@ -45,8 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_20"
-                    android:layout_marginRight="@dimen/margin_50"
-                    android:layout_marginLeft="@dimen/margin_50"
+                    android:layout_marginRight="@dimen/margin_20"
+                    android:layout_marginLeft="@dimen/margin_20"
                     android:layout_marginBottom="@dimen/margin_12"
                     android:background="@drawable/bg_common_button"
                     android:text="提交"

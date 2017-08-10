@@ -33,22 +33,19 @@ public class IncomeAdapter extends ListBaseAdapter<IncomeModel.IncomeDetail> {
         viewHolder.item_expand.SetOrderNumber(item.order_no);
         viewHolder.item_expand.SetFinishTime(item.time);
         viewHolder.item_expand.SetRealAmount(item.real_amount + "元");
+        viewHolder.item_expand.SetMainType(item.parent_type_name);
         switch (item.order_type) {
             case 1:
                 viewHolder.item_expand.setImage(R.drawable.sanitary_appliance);
-                viewHolder.item_expand.SetMainType("洁具卫浴");
                 break;
             case 2:
                 viewHolder.item_expand.setImage(R.drawable.electronic_devices);
-                viewHolder.item_expand.SetMainType("家电维修");
                 break;
             case 3:
                 viewHolder.item_expand.setImage(R.drawable.lanterns_h);
-                viewHolder.item_expand.SetMainType("灯具电路");
                 break;
             case 4:
                 viewHolder.item_expand.setImage(R.drawable.other_repair);
-                viewHolder.item_expand.SetMainType("其他维修");
                 break;
         }
         viewHolder.item_expand.SetSecondType(item.type_name);

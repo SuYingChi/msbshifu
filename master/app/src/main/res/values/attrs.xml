@@ -20,6 +20,7 @@
         <attr name="ImageRight" format="reference"/>
         <attr name="HasRightImage" format="boolean"/>
         <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="SwitchButton">

@@ -5,22 +5,21 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
+    android:orientation="vertical"
     android:background="@drawable/bg_item_work_order"
     android:descendantFocusability="blocksDescendants"
     android:padding="5dp">
-
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/tv_text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="订单编号："
             android:textColor="@color/title"
-            android:textSize="@dimen/text_22"/>
+            android:textSize="@dimen/text_18"/>
 
         <TextView
             android:id="@+id/tv_order_num"
@@ -46,7 +45,7 @@
             android:layout_centerHorizontal="true"
             android:text="空调维修"
             android:textColor="@color/title"
-            android:textSize="@dimen/text_24"/>
+            android:textSize="@dimen/text_20"/>
     </RelativeLayout>
 
     <View
@@ -69,7 +68,7 @@
             android:layout_centerVertical="true"
             android:text="服务地址："
             android:textColor="@color/title"
-            android:textSize="@dimen/text_18"/>
+            android:textSize="@dimen/text_16"/>
         <FrameLayout
             android:id="@+id/layout_control"
             android:layout_width="wrap_content"
@@ -85,7 +84,6 @@
                 android:layout_gravity="center"
                 android:src="@drawable/phone_img_h"
                 android:visibility="invisible"/>
-
             <TextView
                 android:id="@+id/tv_detail"
                 android:layout_width="wrap_content"
@@ -98,8 +96,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_12"/>
         </FrameLayout>
-
-
         <TextView
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
@@ -110,8 +106,6 @@
             android:layout_toRightOf="@id/tv_text2"
             android:text="海南大学测试啊"
             android:textColor="@color/desc"
-            android:textSize="@dimen/text_18"/>
-
-
+            android:textSize="@dimen/text_16"/>
     </RelativeLayout>
 </RelativeLayout>

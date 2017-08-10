@@ -34,6 +34,8 @@ import com.msht.master.FunctionView.LearnRule;
 import com.msht.master.FunctionView.MyEvaluteActivity;
 import com.msht.master.FunctionView.MyWallet;
 import com.msht.master.FunctionView.MyData;
+import com.msht.master.FunctionView.NewPriceBook;
+import com.msht.master.FunctionView.PriceTable;
 import com.msht.master.HtmlWeb.BuyInsurance;
 import com.msht.master.FunctionView.PriceBook;
 import com.msht.master.Model.BasicInfoModel;
@@ -188,7 +190,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.id_price_layout:
                 //价格手册
-                Intent price = new Intent(getActivity(), PriceBook.class);
+                Intent price = new Intent(getActivity(), PriceTable.class);
                 startActivity(price);
                 break;
             case R.id.id_aboutmine_layout:

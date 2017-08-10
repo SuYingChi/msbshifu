@@ -13,7 +13,7 @@ import com.msht.master.fragment.RewordHistory;
  */
 
 public class LearnRuleAdapter extends FragmentPagerAdapter {
-    private String[] Titles={"奖励规则","惩罚规则"};
+    private String[] Titles={"奖励规则","服务流程"};
     public LearnRuleAdapter(FragmentManager fm) {
         super(fm);
     }

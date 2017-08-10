@@ -22,14 +22,11 @@ import com.msht.master.R;
  */
 
 public class ImageTextButton extends RelativeLayout {
-
     /**
      * 是否具有右边的图片
      */
     private boolean hasRightImage = false;
-
     private boolean hasLeftImage = false;
-
     /**
      * 左边显示的图片资源
      */
@@ -46,7 +43,7 @@ public class ImageTextButton extends RelativeLayout {
      * 中间显示的文字的颜色 默认为黑色
      */
     private int textColor = 0xFF000000;
-
+    private float textSize  =16;
     /**
      * 左边的ImageView
      */
@@ -76,10 +73,10 @@ public class ImageTextButton extends RelativeLayout {
             hasLeftImage=true;
             imageLeft = ta.getDrawable(R.styleable.ImageTextButton_ImageLeft);
         }
-
         imageRight = ta.getDrawable(R.styleable.ImageTextButton_ImageRight);
         text = ta.getString(R.styleable.ImageTextButton_text);
         textColor = ta.getColor(R.styleable.ImageTextButton_textColor, 0xFF000000);
+        textSize  =ta.getDimension(R.styleable.ImageTextButton_textSize,16);
         ta.recycle();
         initView(context);
         initLayout();
@@ -127,8 +124,10 @@ public class ImageTextButton extends RelativeLayout {
             setImageLeftResource(imageLeft);
         }
         textView = new TextView(context);
-        setTextAndSize(text, 16);
+        setTextAndSize(text);
+        //setTextAndSize(text, 16);
         setTextColor(textColor);
+        setTextSize(textSize);
         textView.setId(R.id.textView);
         rightImageView = new ImageView(context);
         rightImageView.setId(R.id.right_view);
@@ -179,18 +178,20 @@ public class ImageTextButton extends RelativeLayout {
      * 设置文字内容和大小
      *
      * @param text
-     * @param sp
+     * @param
      */
-    public void setTextAndSize(String text, int sp) {
+    public void setTextAndSize(String text) {
         textView.setText(text);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+       // textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
     }
 
     public void setTextColor(int textColor) {
         textView.setTextColor(textColor);
     }
 
-
+    public void setTextSize(float textSize){
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
+    }
     public int getRawSize(int unit, float size) {
         Context c = getContext();
         Resources r;
@@ -202,5 +203,9 @@ public class ImageTextButton extends RelativeLayout {
 
         return (int) TypedValue.applyDimension(unit, size, r.getDisplayMetrics());
     }
+    private int sp2px(float sp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
+    }
+
 
 }

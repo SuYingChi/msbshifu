@@ -40,6 +40,7 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_phone_num;
     private TextView tv_name;
     private TextView tv_idcard;
+    private TextView tv_city;
     private String token;
     private CustomDialog customDialog;
 
@@ -82,6 +83,7 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
         tv_idcard = (TextView) findViewById(R.id.tv_idcard);
         tv_number = (TextView) findViewById(R.id.tv_number);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
+        tv_city=(TextView)findViewById(R.id.tv_city);
 
     }
 
@@ -144,6 +146,7 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
                     tv_phone_num.setText(data.phone);
                     tv_number.setText(data.number);
                     tv_sex.setText(data.sex);
+                    tv_city.setText(data.city_name);
                 }else{
                     //失败
                     CommonMethod.faifure(new WeakReference<Activity>(this),model.error);

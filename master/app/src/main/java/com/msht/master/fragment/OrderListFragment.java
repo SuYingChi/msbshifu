@@ -47,6 +47,7 @@ public class OrderListFragment extends BaseFragment implements SwipeRefreshLayou
     private int status = 0;//默认全部评价
     private int pageNo = 1;//当前页数
     private int size = 18;//每页加载的大小
+    private int pos;
     private MyWorkOrderAdapter myWorkOrderAdapter;
     private LuRecyclerViewAdapter luRecyclerViewAdapter;
     private boolean isRefreshing;//是不是刷新出来的数据
@@ -149,9 +150,7 @@ public class OrderListFragment extends BaseFragment implements SwipeRefreshLayou
     }
 
     private void addItems(ArrayList<OrderModel.OrderDetailModel> list) {
-
         myWorkOrderAdapter.addAll(list);
-
     }
 
 
@@ -198,13 +197,10 @@ public class OrderListFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 0x002 || resultCode == 0x003||resultCode==0x004||resultCode==0x005) {
+        if (resultCode == 0x002 || resultCode == 0x003||resultCode==0x004||resultCode==0x005||resultCode==0x006) {
             onRefresh();
         }
-
     }
-
-
     private void getDataSuccess(Message msg) {
         //解析数据
         try {

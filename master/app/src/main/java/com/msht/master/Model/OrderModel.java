@@ -24,5 +24,6 @@ public class OrderModel extends BaseModel{
         public String user_phone;
         public String time;
         public String status;
+        public String statusDesc;
     }
 }

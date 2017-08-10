@@ -18,5 +18,7 @@ public class BasicInfoModel extends BaseModel {
         public double balance;
         public String avatar;
         public String sex;
+        public String city_id;
+        public String city_name;
     }
 }

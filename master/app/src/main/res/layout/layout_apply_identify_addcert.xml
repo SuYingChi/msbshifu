@@ -80,7 +80,7 @@
             android:layout_marginLeft="@dimen/margin_5"/>
         <CheckBox
             android:id="@+id/id_year_radio"
-            android:button="@drawable/selector_my_checkbox"
+            android:button="@drawable/selector_my_radiobutton"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_centerVertical="true"

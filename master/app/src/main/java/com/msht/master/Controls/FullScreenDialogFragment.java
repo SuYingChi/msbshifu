@@ -67,7 +67,6 @@ public class FullScreenDialogFragment extends DialogFragment {
         initView();
         return mDialog;
     }
-
     private void initView() {
         //将Dialog设置全屏！！！
         setDlgParams();
@@ -130,8 +129,6 @@ public class FullScreenDialogFragment extends DialogFragment {
             this.mode = 1;
             this.stringList = stringList;
         }
-
-
         @Override
         public int getCount() {
             switch (mode) {
@@ -176,10 +173,8 @@ public class FullScreenDialogFragment extends DialogFragment {
 
             // Now just add PhotoView to ViewPager and return it
             container.addView(photoView, ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT);
-
             return photoView;
         }
-
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);//删除页卡

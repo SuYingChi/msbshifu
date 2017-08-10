@@ -85,7 +85,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
     }
 
     private void Registerrequest() {
-
         new PromptDialog.Builder(this)
                 .setTitle(R.string.dialog_title)
                 .setViewStyle(PromptDialog.VIEW_STYLE_TITLEBAR_SKYBLUE)
@@ -117,8 +116,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-
-
         clearimg = (ImageView) findViewById(R.id.id_clear);
         showimg = (ImageView) findViewById(R.id.id_image_show); //显示密码
         showimg.setTag(0);
@@ -129,7 +126,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
         Etnewpassword = (EditText) findViewById(R.id.id_et_newpassword);
         Btnreset.setEnabled(false);
     }
-
     private void initEvent() {
 
         clearimg.setOnClickListener(this);
@@ -139,7 +135,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(Etphonenumber.getText().toString())) {
@@ -166,8 +161,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
                 if (isPhone(PhoneNo)) {
                     Btngetcode.setText("正在发送...");
                     time.start();
-//                    Thread getcodeThread = new Thread(new resetHandler());
-//                    getcodeThread.start();
                     Map<String, String> textParams = new HashMap<String, String>();
                     textParams.put("username", PhoneNo);
                     SendRequestUtils.PostDataFromService(textParams, NetConstants.REPAIRMAN_CAPTCHA, findHandler);
@@ -179,7 +172,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -212,7 +204,6 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
                     Btnreset.setEnabled(true);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -291,11 +282,9 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
     }
 
     class TimeCount extends CountDownTimer {
-
         public TimeCount(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
-
         @Override
         public void onTick(long millisUntilFinished) {
             Btngetcode.setClickable(false);
@@ -335,8 +324,8 @@ public class Findpassword extends AppCompatActivity implements View.OnClickListe
                 //重新登陆
             } else {
                 if (model.result.equals("success")) {
+                    Registerrequest();
                 } else {
-                    //失败
                     failure(model.error);
                 }
             }

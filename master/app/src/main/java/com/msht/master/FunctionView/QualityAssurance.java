@@ -94,7 +94,6 @@ public class QualityAssurance extends AppCompatActivity implements SwipeRefreshL
         pageNo=1;
         requestData();
     }
-
     @Override
     public void onLoadMore() {
         LoadingFooter.State state = LuRecyclerViewStateUtils.getFooterViewState(mRecyclerView);

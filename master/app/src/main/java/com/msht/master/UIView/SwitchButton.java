@@ -30,7 +30,7 @@ public class SwitchButton extends View{
 	/** */
 	private float radius;
 	/** 开启颜色*/
-	private int onColor = Color.parseColor("#4ebb7f");
+	private int onColor = Color.parseColor("#23AEEF");
 	/** 关闭颜色*/
 	private int offBorderColor = Color.parseColor("#dadbda");
 	/** 灰色带颜色*/
@@ -228,8 +228,6 @@ public class SwitchButton extends View{
 		
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
-	
-	
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {

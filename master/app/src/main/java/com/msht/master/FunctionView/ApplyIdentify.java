@@ -3,6 +3,7 @@ package com.msht.master.FunctionView;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -39,6 +40,7 @@ import com.msht.master.Base.BaseHandler;
 import com.msht.master.Common.CommonMethod;
 import com.msht.master.Constants.NetConstants;
 import com.msht.master.Constants.SPConstants;
+import com.msht.master.Constants.VariableUtil;
 import com.msht.master.Controls.FullyGridLayoutManager;
 import com.msht.master.Controls.FullyLinearLayoutManager;
 import com.msht.master.Controls.MyRecyclerView;
@@ -84,16 +86,20 @@ import top.zibin.luban.OnCompressListener;
 public class ApplyIdentify extends AppCompatActivity implements View.OnClickListener {
 
     private MyRecyclerView skillRecycler;
-    private MyRecyclerView mDistrict;
     private MaterialSpinner spinner;
     private RelativeLayout Rfront, Reverse, Rcertificate;
+    private RelativeLayout Rdistrict,Rcity;
     private Button btn_send;
     private ImageView goback, Imgfront, Imgreverse, Imgcertificate;
     private RadioGroup Group;
     private RadioButton radiomale, radiofemale;
+    private TextView tv_city,tv_district;
     private EditText et_mastername, et_address, et_idcard;
     private EditText et_certName, et_date;
     private CheckBox box_date;
+    private String mCity="海口";
+    private String city_id;
+    private String regionId="";
     private String token, sex = "1";
     private String experience = "1 年";
     private String always_effective = "0";
@@ -109,51 +115,21 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
     private final int FRONT = 3;
     private final int CERTE = 5;
     private int CODE = 3;
+    private final int AREA_CODE=7;
+    private final int CITY_CODE=6;
+    private Context mContext;
     private CustomDialog customDialog;
     private ArrayList<Integer> selectedSkill = new ArrayList<>();
     private ArrayList<Integer> selectedDistrict = new ArrayList<>();
     private int currentPic = 0;
 
-
     private SkilllMainTypeAdapter skilllMainTypeAdapter;
-    private DistrictAdapter districtAdapter;
-
+  //  private DistrictAdapter districtAdapter;
     private boolean finishApplyIdentify = false;
     private boolean finishApplyCert = true;
-
     Handler skillhandler = new SkillHandler(this);
-    Handler regionhandler = new RegionHanlder(this);
     Handler applyHandler = new ApplyIdentifyHandler(this);
     Handler certHandler = new CertHandler(this);
-
-
-    /**
-     * 获取区域信息成功
-     */
-    private void getRegionSuccess(Message msg) {
-        try {
-            Gson gson = new Gson();
-            DistrictModel districtModel = gson.fromJson(msg.obj.toString(), DistrictModel.class);
-            int result_code = districtModel.result_code;
-            String Results = districtModel.result;
-            String Error = districtModel.error;
-            if (result_code == 2) {
-                CommonMethod.goLogin(new WeakReference<Activity>(this), 2);
-            } else {
-                if (Results.equals("success")) {
-                    //获取信息成功
-                    districtAdapter.addAll(districtModel.data);
-                } else {
-                    Toast.makeText(ApplyIdentify.this, Error, Toast.LENGTH_SHORT)
-                            .show();
-                }
-            }
-        } catch (Exception e) {
-            //数据解析失败
-        }
-    }
-
-
     /**
      * 获取技能列表成功
      */
@@ -175,13 +151,10 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
     }
-
-
     private void Success() {
         finishApplyCert = true;
         FinishApply();
     }
-
     private void FinishApply() {
         if (finishApplyCert && finishApplyIdentify) {
             customDialog.dismiss();
@@ -206,26 +179,18 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
         finishApplyIdentify = true;
         FinishApply();
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_identify);
+        mContext=this;
         initHeaderTitle();
         token = (String) SharedPreferencesUtils.getData(getApplicationContext(), SPConstants.TOKEN, "");
         customDialog = new CustomDialog(this, "正在加载");
         initView();
-        mDistrict.setLayoutManager(new FullyGridLayoutManager(this, 4));
-        districtAdapter = new DistrictAdapter(this);
-        mDistrict.setAdapter(districtAdapter);
-
-
         skillRecycler.setLayoutManager(new FullyLinearLayoutManager(getApplicationContext()));
         skilllMainTypeAdapter = new SkilllMainTypeAdapter(this);
         skillRecycler.setAdapter(skilllMainTypeAdapter);
-
-        initDistrict();
         initData();
         intEvent();
     }
@@ -241,33 +206,14 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
-    /**
-     * 获取区域信息
-     */
-    private void initDistrict() {
-        customDialog.show();
-        String city = "海口";
-        String areaurl = NetConstants.CITY_DISTRICT;
-        String districtUrl = "";
-        try {
-            districtUrl = areaurl + "?city=" + URLEncoder.encode(city, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        SendRequestUtils.GetDataFromService(districtUrl, regionhandler);
-    }
-
     private void initData() {
         //获取技能信息
         String skillURL = NetConstants.REPAIR_CATEGORY_ALL;
         SendRequestUtils.GetDataFromService(skillURL, skillhandler);
     }
-
     private void initView() {
         btn_send = (Button) findViewById(R.id.id_btn_send);
         skillRecycler = (MyRecyclerView) findViewById(R.id.id_skill_view);
-        mDistrict = (MyRecyclerView) findViewById(R.id.id_district_view);
         Imgfront = (ImageView) findViewById(R.id.id_frontal);
         Imgreverse = (ImageView) findViewById(R.id.id_reverse_side);
         et_mastername = (EditText) findViewById(R.id.id_et_name);
@@ -276,6 +222,10 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
         et_certName = (EditText) findViewById(R.id.id_et_certName);
         et_date = (EditText) findViewById(R.id.id_year);
         box_date = (CheckBox) findViewById(R.id.id_year_radio);
+        tv_city=(TextView)findViewById(R.id.id_tv_city) ;
+        tv_district=(TextView)findViewById(R.id.id_tv_district);
+        Rcity=(RelativeLayout)findViewById(R.id.id_re_city);
+        Rdistrict=(RelativeLayout)findViewById(R.id.id_re_district);
         Rfront = (RelativeLayout) findViewById(R.id.id_rela_img1);
         Reverse = (RelativeLayout) findViewById(R.id.id_rela_img2);
         Rcertificate = (RelativeLayout) findViewById(R.id.id_rela_img3);
@@ -287,11 +237,8 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
         radiomale.setChecked(true);    //默认男人
         spinner = (MaterialSpinner) findViewById(R.id.spinner);
         spinner.setItems(Year);
-
         btn_send.setEnabled(false);
-
     }
-
     private void intEvent() {
 
         Group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -311,15 +258,29 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                 Snackbar.make(view, "您的工作经验" + item, Snackbar.LENGTH_LONG).show();
             }
         });
+        Rcity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext,SelectCity.class);
+                startActivityForResult(intent,CITY_CODE);
+            }
+        });
+        Rdistrict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(tv_city.getText().toString())){
+                    Intent intent=new Intent(mContext,SelectDistrict.class);
+                    intent.putExtra("cityid",city_id);
+                    startActivityForResult(intent,AREA_CODE);
+                }
+            }
+        });
         Rfront.setOnClickListener(this);
         Reverse.setOnClickListener(this);
         Rcertificate.setOnClickListener(this);
         TextWatcher watcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(et_mastername.getText().toString()) || TextUtils.isEmpty(et_address.getText().toString())
@@ -329,11 +290,8 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                     btn_send.setEnabled(true);
                 }
             }
-
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) {}
         };
         et_mastername.addTextChangedListener(watcher);
         et_address.addTextChangedListener(watcher);
@@ -353,10 +311,8 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             public void onClick(View view) {
                 finishApplyCert = true;
                 finishApplyIdentify = false;
-
-                String districtId = getDistrictId();
+                String districtId = regionId;
                 String skillId = getSkillid();
-
                 if (matchjudge(skillId, districtId, front_file, reverse_file)) {
                     if (!TextUtils.isEmpty(et_certName.getText().toString()) && cert_file == null) {
                         finishApplyCert = false;
@@ -384,6 +340,7 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                     textParams.put("token", token);
                     textParams.put("sex", sex);
                     textParams.put("name", name);
+                    textParams.put("city_id",city_id);
                     textParams.put("address", address);
                     textParams.put("idCard", idCard);
                     textParams.put("experience_year", experience);
@@ -396,28 +353,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
-    private String getDistrictId() {
-        selectedDistrict.clear();
-        List<DistrictModel.DistrictDetail> dataList = districtAdapter.getDataList();
-        for (DistrictModel.DistrictDetail data : dataList) {
-            if (data.isSelected == 1) {
-                selectedDistrict.add(data.id);
-            }
-        }
-        StringBuilder result = new StringBuilder();
-        boolean flag = false;
-        for (int item : selectedDistrict) {
-            if (flag) {
-                result.append(",");
-            } else {
-                flag = true;
-            }
-            result.append(item);
-        }
-        return result.toString();
-    }
-
     private String getSkillid() {
         selectedSkill.clear();
         List<RepairCategoryModel.MainCategory> dataList = skilllMainTypeAdapter.getDataList();
@@ -511,6 +446,19 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                 }
 
             }
+        }
+        if (requestCode==CITY_CODE&&resultCode==3){
+            regionId="";   //清空重新选择
+            tv_district.setText("");   //重新选择城市成功后，清空之前的区域数据
+            VariableUtil.selectedPos.clear();
+            mCity=data.getStringExtra("city");
+            city_id=data.getStringExtra("id");
+            tv_city.setText(mCity);
+        }
+        if (requestCode==AREA_CODE&&resultCode==4){
+            regionId=data.getStringExtra("districtId");
+            String districtName=data.getStringExtra("districtName");
+            tv_district.setText(districtName);
         }
     }
 
@@ -657,24 +605,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             object.customDialog.dismiss();
         }
     }
-
-    private static class RegionHanlder extends BaseHandler<ApplyIdentify> {
-
-        public RegionHanlder(ApplyIdentify object) {
-            super(object);
-        }
-
-        @Override
-        public void onSuccess(ApplyIdentify object, Message msg) {
-            object.getRegionSuccess(msg);
-        }
-
-        @Override
-        public void onFinilly(ApplyIdentify object) {
-            object.customDialog.dismiss();
-        }
-    }
-
     private static class ApplyIdentifyHandler extends BaseHandler<ApplyIdentify> {
 
         public ApplyIdentifyHandler(ApplyIdentify object) {
@@ -740,6 +670,5 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 }

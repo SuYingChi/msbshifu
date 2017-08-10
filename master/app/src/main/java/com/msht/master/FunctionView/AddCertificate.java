@@ -14,6 +14,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -124,21 +125,21 @@ public class AddCertificate extends AppCompatActivity {
         box_date = (CheckBox) findViewById(R.id.id_year_radio);
         Rcert = (RelativeLayout) findViewById(R.id.id_rela_img);
         btn_send = (Button) findViewById(R.id.id_btn_send);
-
         Imgcertificate = (ImageView) findViewById(R.id.id_certificate);
         tv_number = (TextView) findViewById(R.id.tv_number);
         btn_send.setEnabled(false);
-
     }
-
     private void initEvent() {
         box_date.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     always_effective = "1";
+                    et_date.setInputType(InputType.TYPE_NULL);
+                    et_date.setText("");
                 } else {
                     always_effective = "0";
+                    et_date.setInputType(InputType.TYPE_CLASS_DATETIME);
                 }
             }
         });

@@ -28,9 +28,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.msht.master.Common.DownloadService;
 import com.msht.master.Constants.NetConstants;
 import com.msht.master.Constants.SPConstants;
 import com.msht.master.FunctionView.MyInform;
+import com.msht.master.FunctionView.SearchOrder;
 import com.msht.master.Model.NewVersionModel;
 import com.msht.master.UIView.PromptDialog;
 import com.msht.master.Utils.AppToast;
@@ -42,14 +44,12 @@ import com.msht.master.fragment.OrderList;
 import com.msht.master.fragment.OrderListFragment;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
-
-
 import java.io.File;
 import java.lang.ref.WeakReference;
 
 public class HomePage extends FragmentActivity implements View.OnClickListener {
     private Fragment HomeFrag, OrderFrag, myFrag,currentFragment;
-
+    private ImageView mSearch;
     private ImageView mMessage;
     private TextView  navigation_tv;
     public static final String FOLDER_NAME = "Download";
@@ -84,8 +84,9 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
 
 
         mMessage=(ImageView)findViewById(R.id.id_message);
+        mSearch=(ImageView)findViewById(R.id.id_search);
         navigation_tv=(TextView)findViewById(R.id.tv_logo);
-
+        mSearch.setOnClickListener(this);
         mMessage.setOnClickListener(this);
 
 
@@ -134,6 +135,10 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
      * 下载新版本
      */
     private void downLoadNewVersion(String url) {
+        Intent intent = new Intent(this,DownloadService.class);
+        intent.putExtra("url", url);
+        startService(intent);
+/*
         File folder = new File(FOLDER_NAME);
         if (!folder.exists() || !folder.isDirectory()) {
             folder.mkdirs();
@@ -147,17 +152,16 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
         request.setMimeType("application/vnd.android.package-archive");
         long enqueue = mDownloadManaget.enqueue(request);
         //保存到sp 以便于在我的界面查看
-        SharedPreferencesUtils.saveData(HomePage.this, SPConstants.DOWNLOAD_NEW_VERSION_ID, enqueue);
+        SharedPreferencesUtils.saveData(HomePage.this, SPConstants.DOWNLOAD_NEW_VERSION_ID, enqueue);*/
     }
-
-
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.id_message:
                 clickMessage();
+                break;
+            case R.id.id_search:
+                clickSearch();
                 break;
             default:
                 break;
@@ -217,16 +221,17 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
         }
         addOrShowFragment(getSupportFragmentManager().beginTransaction(), HomeFrag);
         navigation_tv.setText(R.string.homepage);//导航栏——民生宝
+        mSearch.setVisibility(View.GONE);
+        mMessage.setVisibility(View.VISIBLE);
     }
-
-
-
     private void clickTab2Layout() {
         if (OrderFrag == null) {
             OrderFrag = new OrderList();
         }
         addOrShowFragment(getSupportFragmentManager().beginTransaction(), OrderFrag);
         navigation_tv.setText(R.string.orderworke);//导航栏——民生宝
+        mSearch.setVisibility(View.VISIBLE);
+        mMessage.setVisibility(View.GONE);
     }
 
     private void clickTab3Layout() {
@@ -235,6 +240,8 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
         }
         addOrShowFragment(getSupportFragmentManager().beginTransaction(), myFrag);
         navigation_tv.setText(R.string.my_personal);//导航栏——民生宝
+        mSearch.setVisibility(View.GONE);
+        mMessage.setVisibility(View.VISIBLE);
     }
     private void addOrShowFragment(FragmentTransaction fragmentTransaction, Fragment fragment) {
         if (currentFragment == fragment)
@@ -248,10 +255,14 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
         }
         currentFragment = fragment;
     }
-
     private void clickMessage() {
         Intent Message=new Intent(this, MyInform.class);
         startActivity(Message);
+    }
+    private void clickSearch() {
+
+        Intent intent=new Intent(this, SearchOrder.class);
+        startActivity(intent);
     }
     /*接受广播*/
     private BroadcastReceiver broadcastReceiver=new BroadcastReceiver() {

@@ -257,7 +257,6 @@ public class LoginActivity extends AppCompatActivity {
                 CommonMethod.goLogin(new WeakReference<Activity>(this), 2);
             } else {
                 if (loginModel.result.equals("success")) {
-
                     initShow(loginModel.data);
 
                 } else {

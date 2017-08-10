@@ -13,7 +13,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margin_10"
         android:text="本月订单收入："
-        android:textSize="@dimen/text_18"/>
+        android:textSize="@dimen/text_16"/>
 
     <TextView
         android:id="@+id/id_month_income"
@@ -22,8 +22,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margin_10"
         android:layout_toRightOf="@+id/id_text2"
-        android:textSize="@dimen/text_18"/>
-
+        android:textSize="@dimen/text_16"/>
     <RelativeLayout
         android:id="@+id/id_re_date"
         android:layout_width="wrap_content"
@@ -39,7 +38,7 @@
             android:layout_centerVertical="true"
             android:text=""
             android:textColor="@color/topicColor"
-            android:textSize="@dimen/text_18"/>
+            android:textSize="@dimen/text_16"/>
 
         <ImageView
             android:layout_width="@dimen/margin_25"

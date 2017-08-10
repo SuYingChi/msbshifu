@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.msht.master.Base.ListBaseAdapter;
+import com.msht.master.Constants.VariableUtil;
 import com.msht.master.Model.DistrictModel;
 import com.msht.master.R;
 
@@ -27,7 +29,8 @@ public class DistrictAdapter extends ListBaseAdapter<DistrictModel.DistrictDetai
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final DistrictModel.DistrictDetail districtDetail = mDataList.get(position);
         final DistrictViewHolder viewHolder = (DistrictViewHolder) holder;
-        viewHolder.cb_district.setText(districtDetail.name);
+       // viewHolder.cb_district.setText(districtDetail.name);
+        viewHolder.tv_district.setText(districtDetail.name);
         viewHolder.cb_district.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -35,6 +38,11 @@ public class DistrictAdapter extends ListBaseAdapter<DistrictModel.DistrictDetai
                 viewHolder.cb_district.setTextColor(isChecked? mContext.getResources().getColor(R.color.colorPrimary):mContext.getResources().getColor(R.color.desc));
             }
         });
+        if (VariableUtil.selectedPos.size()!=0){
+            if (VariableUtil.selectedPos.get(position)==position){
+                viewHolder.cb_district.setChecked(true);
+            }
+        }
     }
 
     @Override
@@ -45,10 +53,12 @@ public class DistrictAdapter extends ListBaseAdapter<DistrictModel.DistrictDetai
 
 
         private final CheckBox cb_district;
+        private TextView tv_district = null;
 
         public DistrictViewHolder(View itemView) {
             super(itemView);
             cb_district = (CheckBox) itemView.findViewById(R.id.cb_district);
+            tv_district =(TextView)itemView.findViewById(R.id.tv_district);
         }
     }
 }

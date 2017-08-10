@@ -38,6 +38,10 @@ public class NetConstants {
      */
     public static final String REPAIR_ORDER_LIST=SERVER_URL+"repairman/repair_order/list";
     /**
+     * 搜索工单
+     */
+    public static final String SEARCH_ORDER_LIST=SERVER_URL+"repairman/repair_order/search";
+    /**
      * 确定订单
      */
     public static final String REPAIR_ORDER_ACCEPT=SERVER_URL+"repairman/repair_order/accept";
@@ -332,8 +336,18 @@ public class NetConstants {
      * 维修价格-清洗-洗衣机
      */
     public static final String QINGXI_XIYIJI=SERVER_URL+"repair_h5/qingxi_xiyiji.html";
-
-
+    /*选择城市  */
+    public static final String SELECT_CITY=SERVER_URL+"api/serve_city/list";
+    /*选择地区 */
+    public static final String SELECT_DISTRICT=SERVER_URL+"api/serve_city/district";
+   /*师傅拍照上传*/
+    public static final String Upload_Image=SERVER_URL+"repairman/repair_order/order_image";
+    /*已上门开始服务*/
+    public static final String  Start_Server=SERVER_URL+"repairman/repair_order/start_serve";
+    /*保修卡重写  */
+    public static final String  Rewrite_Warranty=SERVER_URL+"repairman/repair_order/warranty_card";
+    /*获取价格接口  */
+    public static final String  PriceBook_URL=SERVER_URL+"api/serve_city/repairman_app_serve";
 
 
 }

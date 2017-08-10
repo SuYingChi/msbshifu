@@ -14,12 +14,13 @@
         android:src="@drawable/order_detail_photo"/>
 
     <TextView
+        android:id="@+id/id_pic_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_10"
         android:layout_toRightOf="@+id/id_img1"
         android:layout_alignBottom="@id/id_img1"
-        android:text="维修部位照片"
+        android:text="上传修好部位照片"
         android:textColor="#333333"
         android:textSize="@dimen/text_18"/>
     <View
@@ -29,10 +30,10 @@
         android:layout_height="0.5dp"
         android:layout_marginTop="5dp"
         android:background="@color/line_gray"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_photo"
         android:layout_below="@id/divider_line"
+        android:layout_marginLeft="@dimen/margin_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
