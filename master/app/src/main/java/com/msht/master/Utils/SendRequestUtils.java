@@ -182,7 +182,6 @@ public class SendRequestUtils {
             }
         }.start();
     }
-
     public static void PostFileToServer(final Map<String, String> textparams, final Map<String, File> fileparams, final String validateURL, final Handler mhandler) {
         new Thread(){
             @Override
@@ -236,5 +235,4 @@ public class SendRequestUtils {
         }.start();
 
     }
-
 }

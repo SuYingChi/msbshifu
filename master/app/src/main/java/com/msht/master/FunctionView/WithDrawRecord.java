@@ -41,7 +41,7 @@ public class WithDrawRecord extends Activity implements SwipeRefreshLayout.OnRef
     private LuRecyclerView mRecyclerView;
     private WithDrawRecordAdapter withDrawRecordAdapter;
     private LuRecyclerViewAdapter luRecyclerViewAdapter;
-    private String token;;
+    private String token;
     private boolean isRefreshing;
     private int size=18;
     private int pageNo=1;

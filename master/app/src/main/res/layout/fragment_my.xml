@@ -115,15 +115,14 @@
                     app:title2="银行卡">
 
                 </com.msht.master.Controls.MyFragmentButton>
-
                 <View
+                    android:id="@+id/id_line"
                     android:layout_width="0.5dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/margin_10"
                     android:layout_marginTop="@dimen/margin_10"
                     android:background="@color/line_gray">
                 </View>
-
                 <com.msht.master.Controls.MyFragmentButton
                     android:background="@drawable/bg_mb_button"
                     android:id="@+id/mb_my_wallet"

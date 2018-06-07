@@ -39,7 +39,6 @@ public class SelectCity extends AppCompatActivity {
     private Context mContext;
     private CustomDialog customDialog;
     Handler cityhandler = new SelectCity.CityHanlder(this);
-
     private void getCitySuccess(Message msg) {
         try {
             Gson gson = new Gson();
@@ -76,7 +75,6 @@ public class SelectCity extends AppCompatActivity {
         customDialog.show();
         String cityurl = NetConstants.SELECT_CITY;
         SendRequestUtils.GetDataFromService(cityurl, cityhandler);
-
     }
     private void initHeaderTile() {
         findViewById(R.id.id_goback).setOnClickListener(new View.OnClickListener() {
@@ -90,7 +88,6 @@ public class SelectCity extends AppCompatActivity {
     }
     private void initView() {
         mRecyclerView = (LuRecyclerView)findViewById(R.id.recycler_view);
-
         mAdapter = new CityAdapter(this);
         luRecyclerViewAdapter = new LuRecyclerViewAdapter(mAdapter);
         mRecyclerView.setAdapter(luRecyclerViewAdapter);
@@ -111,11 +108,9 @@ public class SelectCity extends AppCompatActivity {
     }
 
     private static class CityHanlder extends BaseHandler<SelectCity> {
-
         public CityHanlder(SelectCity object) {
             super(object);
         }
-
         @Override
         public void onSuccess(SelectCity object, Message msg) {
             object.getCitySuccess(msg);

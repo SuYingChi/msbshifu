@@ -11,7 +11,8 @@ public class NetConstants {
      * https://test.msbapp.cn/
      */
    // private static final String SERVER_URL="https://msbapp.cn/";
-    private static final String SERVER_URL="https://test.msbapp.cn/";
+   // private static final String SERVER_URL="https://test.msbapp.cn/";
+    private static final String SERVER_URL="http://test.msbapp.cn:8080/";
 
     /**
      * 师傅用户登陆
@@ -102,7 +103,7 @@ public class NetConstants {
      * 我的钱包 总览
      */
     public static final String WALLET_OVERVIEW=SERVER_URL+"repairman/wallet/overview";
-
+    public static final String EnterPrise_Overview=SERVER_URL+"repairman/wallet/ep_overview";
     /**
      * 创建订单
      */
@@ -350,4 +351,5 @@ public class NetConstants {
     public static final String  PriceBook_URL=SERVER_URL+"api/serve_city/repairman_app_serve";
 
 
+    public static final String  Enterprise_List=SERVER_URL+"/repairman/repairman/getEnterprise";
 }

@@ -6,18 +6,20 @@ import android.app.Notification;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 
-import android.support.v7.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 
 import com.msht.master.R;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
+
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
+import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
 
 
@@ -27,84 +29,54 @@ import com.umeng.message.entity.UMessage;
 
 public class MyApplication extends Application {
 
-    private RefWatcher refWatcher;
-
-    public static RefWatcher getRefWatcher(Context context) {
-        MyApplication application = (MyApplication) context.getApplicationContext();
-        return application.refWatcher;
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        //内存泄漏检测
-        refWatcher = LeakCanary.install(this);
-
-        //设置自定义统计
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE,"b1039518e98591859dace4479bbf04ee");
         MobclickAgent.openActivityDurationTrack(false);
         PushAgent mPushAgent = PushAgent.getInstance(this);
-
-        UmengMessageHandler messageHandler = new UmengMessageHandler() {
-            /**
-             * 自定义消息的回调方法
-             * */
-//            @Override
-//            public void dealWithCustomMessage(final Context context, final UMessage msg) {
-//                new Handler().post(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//                        // TODO Auto-generated method stub
-//                        // 对自定义消息的处理方式，点击或者忽略
-//                        boolean isClickOrDismissed = true;
-//                        if (isClickOrDismissed) {
-//                            //自定义消息的点击统计
-//                            UTrack.getInstance(getApplicationContext()).trackMsgClick(msg);
-//                        } else {
-//                            //自定义消息的忽略统计
-//                            UTrack.getInstance(getApplicationContext()).trackMsgDismissed(msg);
-//                        }
-//                        Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//            }
-
-            /**
-             * 自定义通知栏样式的回调方法
-             * */
+        UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
             @Override
-            public Notification getNotification(Context context, UMessage msg) {
-                //实例化NotificationCompat.Builde并设置相关属性
-                //自定义的通知展示
-                NotificationCompat.Builder builder = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext())
-                        //设置小图标
-                        .setSmallIcon(R.drawable.notification_small)
-                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                        //设置通知标题
-                        .setContentTitle(msg.title)
-                        .setColor(getResources().getColor(R.color.colorPrimary))
-                        //设置通知内容
-                        .setContentText(msg.text)
-                        .setAutoCancel(true);
-                return builder.build();
+            public void dealWithCustomAction(Context context, UMessage msg) {
+               // Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
             }
         };
+        UmengMessageHandler messageHandler = new UmengMessageHandler() {
+
+            @Override
+            public Notification getNotification(Context context, UMessage msg) {
+                switch (msg.builder_id) {
+                    case 1:
+                        Notification.Builder builder = new Notification.Builder(context);
+                        RemoteViews myNotificationView = new RemoteViews(context.getPackageName(),
+                                R.layout.notification_view);
+                        myNotificationView.setTextViewText(R.id.notification_title, msg.title);
+                        myNotificationView.setTextViewText(R.id.notification_text, msg.text);
+                        myNotificationView.setImageViewBitmap(R.id.notification_large_icon,
+                                getLargeIcon(context, msg));
+                        myNotificationView.setImageViewResource(R.id.notification_small_icon,
+                                getSmallIconId(context, msg));
+                        builder.setContent(myNotificationView)
+                                .setSmallIcon(getSmallIconId(context, msg))
+                                .setTicker(msg.ticker)
+                                .setAutoCancel(true);
+
+                        return builder.getNotification();
+                    default:
+                        //默认为0，若填写的builder_id并不存在，也使用默认。
+                        return super.getNotification(context, msg);
+                }
+            }
+        };
+
         mPushAgent.setMessageHandler(messageHandler);
-
-
         //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {
-
             @Override
-            public void onSuccess(String deviceToken) {
-                //注册成功会返回device token
-                //Log.e("device", deviceToken);
-            }
-
+            public void onSuccess(String s) { }
             @Override
-            public void onFailure(String s, String s1) {
-                //Log.e("device", "失败");
-            }
+            public void onFailure(String s, String s1) {}
         });
     }
 }

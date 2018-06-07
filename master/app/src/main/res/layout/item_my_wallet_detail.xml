@@ -1,54 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/line_gray"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="平台信息费"
-        android:textColor="#000"/>
+        android:layout_marginTop="@dimen/margin_3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="平台信息费"
+            android:textColor="#000"/>
 
-    <TextView
-        android:id="@+id/tv_plateform_fee"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_plateform_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#000"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/assurance_fee_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:textColor="#000"/>
+        android:layout_marginTop="@dimen/margin_3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="缴纳质保金"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/tv_quality_assurance_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#000"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="订单实付款"
+            android:textColor="#000"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv_total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#000"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_plateform_fee"
-        android:text="缴纳质保金"
-        android:textColor="#000"/>
-
-    <TextView
-        android:id="@+id/tv_quality_assurance_fee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/tv_plateform_fee"
-        android:textColor="#000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_quality_assurance_fee"
-        android:text="订单实付款"
-        android:textColor="#000"/>
-
-    <TextView
-        android:id="@+id/tv_total_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/tv_quality_assurance_fee"
-        android:textColor="#000"/>
-</RelativeLayout>
+        android:layout_marginTop="@dimen/margin_3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="评价奖励"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/id_reward_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#000"/>
+    </RelativeLayout>
+</LinearLayout>

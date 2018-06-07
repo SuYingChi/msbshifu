@@ -1,20 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 27
+   // buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.msht.master"
         minSdkVersion 15
-        targetSdkVersion 24
-        versionCode 11
-        versionName "2.5.1"
+        targetSdkVersion 27
+        versionCode 12
+        versionName "2.6"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
 }
 repositories {
@@ -23,48 +28,91 @@ repositories {
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    //内存泄漏检测
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:support-v4:24.2.1'
+    //内存泄漏检测
+
     //权限申请
-    compile 'com.yanzhenjie:permission:1.0.3'
+
     //图片选择器
-    compile 'me.iwf.photopicker:PhotoPicker:0.9.0@aar'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
+
     //图片展示
-    compile 'com.github.chrisbanes:PhotoView:1.3.0'
+
     //订单详情用到的
-    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
-    compile 'com.jaredrummler:material-spinner:1.1.0'
+
     //必须添加
-    compile 'com.pingxx:pingpp-core:2.1.+'
+
     //使用支付宝时添加
-    compile 'com.pingxx:pingpp-alipay:2.1.+'
+
     //使用银联支付时添加
-    compile 'com.pingxx:pingpp-upacp:2.1.+'
+
     //使用微信支付时添加
-    compile 'com.pingxx:pingpp-wxpay:2.1.+'
+
     //图片压缩
-    compile 'top.zibin:Luban:1.0.9'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
+
     //友盟数据统计
-    compile 'com.umeng.analytics:analytics:latest.integration'
+
     //友盟推送
-    compile project(':PushSDK')
+
     //json数据解析
-    compile 'com.google.code.gson:gson:2.8.0'
+
     //recyclerview
-    compile project(':LRecyclerview_library')
+
     //点击扩展的view
-    compile project(':expandableview')
+    implementation project(':expandableview')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.yanzhenjie:permission:1.0.3'
+
+    // implementation 'com.yanzhenjie:permission:2.0.0-rc4'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
+    implementation 'com.github.bumptech.glide:glide:4.1.1'
+    implementation 'com.github.chrisbanes:PhotoView:1.3.0'
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    implementation 'com.jaredrummler:material-spinner:1.2.5'
+
+    /*implementation 'com.pingxx:pingpp-core:2.1.+'
+                        implementation 'com.pingxx:pingpp-alipay:2.1.+'
+                        implementation 'com.pingxx:pingpp-upacp:2.1.+'
+                        implementation 'com.pingxx:pingpp-wxpay:2.1.+'*/
+    implementation 'com.pingxx:pingpp-core:2.1.17'
+
+    // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+
+    // 使用微信支付时添加,具体版本参考微信官方文档
+    implementation 'com.pingxx:pingpp-alipay:2.1.17'
+
+    // 使用支付宝时添加
+    implementation 'com.pingxx:pingpp-upacp:2.1.17'
+
+    // 使用银联支付时添加
+
+    //PushSDK必须依赖基础组件库，所以需要加入对应依赖
+    implementation 'com.umeng.sdk:common:1.5.0'
+
+    //PushSDK必须依赖utdid库，所以需要加入对应依赖
+    implementation 'com.umeng.sdk:utdid:1.1.5.3'
+
+    //PushSDK
+    implementation 'com.umeng.sdk:push:4.1.0'
+    implementation 'top.zibin:Luban:1.0.9'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'com.umeng.analytics:analytics:latest.integration'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+
+    /* testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+                        debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+                        releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'*/
+    implementation project(':LRecyclerview_library')
 }

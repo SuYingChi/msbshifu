@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.recyclerview.LuRecyclerView;
@@ -131,13 +132,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             mSwipeRefreshLayout.setOnRefreshListener(this);
         }
         iv_headimage = (ImageView) view.findViewById(R.id.iv_headimage);
-        Glide
-                .with(this)
-                .load(avatar)
-                .error(R.drawable.default_portrait)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)//deactivate the disk cache for a request.
-                .skipMemoryCache(true)//glide will not put image in the memory cache
-                .into(iv_headimage);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.error(R.drawable.default_portrait);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+        requestOptions.skipMemoryCache(true);
+        Glide.with(this).load(avatar).apply(requestOptions).into(iv_headimage);
         id_mastername = (TextView) view.findViewById(R.id.id_mastername);
         id_mastername.setText(mastername);
         Rannounce=(RelativeLayout)view.findViewById(R.id.id_re_annount);
@@ -179,10 +178,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         });
         mRecyclerView.setOnLoadMoreListener(this);
-
         btn_buy_insurance = (Button) view.findViewById(R.id.btn_buy_insurance);
-
-
         onRefresh();
     }
 
@@ -309,7 +305,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                     @Override
                                     public void never() {
                                         super.never();
-                                        Toast.makeText(getActivity(), "已经拒绝了拨打电话的权限，请前往设置开启", Toast.LENGTH_SHORT);
+                                        Toast.makeText(getActivity(), "已经拒绝了拨打电话的权限，请前往设置开启", Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
@@ -443,7 +439,12 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                     //更新数据
                     OrderModel.OrderDataModel data = orderModel.data;
                     tv_order_count.setText(data.total + "");
-                    ArrayList<OrderModel.OrderDetailModel> orderList = data.orderList;
+                    ArrayList<OrderModel.OrderDetailModel> orderList=new ArrayList<OrderModel.OrderDetailModel>();
+                    for (int i=0;i<data.orderList.size();i++){
+                        if (!data.orderList.get(i).status.equals("6")){    //首页屏蔽status=6
+                            orderList.add(data.orderList.get(i));
+                        }
+                    }
                     if (isRefreshing) {
                         //是刷新的数据
                         myWorkOrderAdapter.clear();

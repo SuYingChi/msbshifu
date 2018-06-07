@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 import com.msht.master.Controls.FullScreenDialogFragment;
 import com.msht.master.R;
@@ -48,15 +49,13 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             }
         });
         String imgurl = listPath.get(position);
-        Glide
-                .with(mContext)
-                .load(imgurl)
-                .error(R.drawable.shape_ring_loading)
-                .placeholder(R.drawable.shape_ring_loading)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)//deactivate the disk cache for a request.
-                .skipMemoryCache(false)//glide will not put image in the memory cache
-                .thumbnail(0.5f)
-                .into(holder.image);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.error(R.drawable.shape_ring_loading);
+        requestOptions.placeholder(R.drawable.shape_ring_loading);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+        requestOptions.skipMemoryCache(false);
+        Glide.with(mContext).load(imgurl).apply(requestOptions).thumbnail(0.5f).into(holder.image);
+
     }
 
     public void SetImageUrlList(ArrayList<String> list) {

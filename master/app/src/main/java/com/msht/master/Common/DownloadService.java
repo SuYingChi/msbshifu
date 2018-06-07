@@ -6,17 +6,19 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
+
 import com.msht.master.R;
-import com.msht.master.Utils.SharedPreferencesUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class DownloadService extends Service {
     private static final int NET_ERROR = 2;
     private static final int DOWNLOAD_SUCCESS = 3;
     private Handler mHandler = new Handler(){
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_INIT:
                     length = (int) msg.obj;
@@ -59,11 +61,10 @@ public class DownloadService extends Service {
                     Toast.makeText(DownloadService.this, "下载地址错误",Toast.LENGTH_SHORT).show();
                     break;
                 case NET_ERROR:
-                    Toast.makeText(DownloadService.this, "相应码="+msg.obj.toString()+"连接失败，请检查网络设置",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DownloadService.this, "连接失败，请检查网络设置",Toast.LENGTH_SHORT).show();
             }
         };
     };
-
     public DownloadService() {
     }
 
@@ -99,10 +100,10 @@ public class DownloadService extends Service {
                 //连接网络文件
                 URL url = new URL(this.url);
                 conn = (HttpURLConnection) url.openConnection();
-                conn.setConnectTimeout(3000);
+                conn.setConnectTimeout(6000);
                 conn.setRequestMethod("GET");
                 int length = -1;
-                if(conn.getResponseCode() ==SC_OK){
+                if(conn.getResponseCode() ==SC_OK){  //200
                     //获得文件长度
                     length = conn.getContentLength();
                 }
@@ -151,20 +152,18 @@ public class DownloadService extends Service {
 
                 URL url = new URL(this.url);
                 conn = (HttpURLConnection) url.openConnection();
-                conn.setConnectTimeout(3000);
+                conn.setConnectTimeout(6000);
                 conn.setRequestMethod("GET");
                 //设置下载位置
                 int start =0;
-                conn.setRequestProperty("Range", "bytes="+0+"-"+length);
+               // conn.setRequestProperty("Range", "bytes="+0+"-"+length);
                 //设置文件写入位置
                 File file = new File(DownloadService.DOWNLOAD_PATH,fileName);
                 raf = new RandomAccessFile(file, "rwd");
                 raf.seek(start);
                 long mFinished = 0;
                 //开始下载
-                if(conn.getResponseCode() ==SC_OK||conn.getResponseCode()==206){
-                    //LogUtil.i("下载开始了。。。");
-                    //读取数据
+                if(conn.getResponseCode() ==SC_OK||conn.getResponseCode()==206){ //这里判断  SC_OK=200,实为206
                     input = conn.getInputStream();
                     byte[] buffer = new byte[1024*4];
                     int len = -1;
@@ -178,7 +177,6 @@ public class DownloadService extends Service {
                         speed += len;
                         if(System.currentTimeMillis() - time > 1000){
                             time = System.currentTimeMillis();
-
                             notifyNotification(mFinished,length);
                             Log.i(TAG, "mFinished=="+mFinished);
                             Log.i(TAG, "length=="+length);
@@ -187,7 +185,7 @@ public class DownloadService extends Service {
                         }
                     }
                     mHandler.sendEmptyMessage(DOWNLOAD_SUCCESS);
-                }else{
+                }else{   //conn.getResponseCode()!=200,
                     mHandler.sendEmptyMessage(NET_ERROR);
                 }
 
@@ -257,12 +255,22 @@ public class DownloadService extends Service {
      * @param file    APK文件
      */
     public static void installApk(Context context, File file) {
-        SharedPreferencesUtils.clearData(context);
-        Intent intent = new Intent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file),
-                "application/vnd.android.package-archive");
-        context.startActivity(intent);
+       // SharedPreferencesUtil.Clear(context,"open_app");//清除原有数据
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+            Uri apkUri= FileProvider.getUriForFile(context,"com.msht.master.fileProvider",file);
+            Intent install=new Intent();
+            install.setAction(Intent.ACTION_VIEW);
+            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            install.setDataAndType(apkUri,"application/vnd.android.package-archive");
+            context.startActivity(install);
+        }else {
+            Intent intent = new Intent();
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(file),
+                    "application/vnd.android.package-archive");
+            context.startActivity(intent);
+        }
     }
 }

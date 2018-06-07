@@ -689,7 +689,6 @@ public class WorkOrderDetail extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
-
     private class ReceiveOrderHandler extends Handler {
         private WeakReference<WorkOrderDetail> ref;
         ReceiveOrderHandler(WorkOrderDetail activity) {

@@ -9,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
+
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.msht.master.R;
 
 import java.util.ArrayList;
@@ -59,15 +61,11 @@ public class EnlargePicActivity extends AppCompatActivity {
         ivPic=(ImageView)findViewById(R.id.iv_pic);
         attacher = new PhotoViewAttacher(ivPic);
         tv_num.setText((position+1)+"/"+imgPaths.size());
-        Glide.with(this).load(imgPaths.get(position)).asBitmap().into(new SimpleTarget<Bitmap>() {
+        Glide.with(this).asBitmap().load(imgPaths.get(position)).into(new SimpleTarget<Bitmap>(){
             @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+            public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
                 ivPic.setImageBitmap(resource);
                 attacher.update();
-            }
-            @Override
-            public void onLoadFailed(Exception e, Drawable errorDrawable) {
-                ivPic.setImageDrawable(errorDrawable);
             }
         });
         attacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {

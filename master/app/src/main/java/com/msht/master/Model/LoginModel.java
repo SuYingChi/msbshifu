@@ -13,6 +13,7 @@ public class LoginModel extends BaseModel {
         public String avatar;
         public int valid;
         public String token;
+        public int ep_id;
     }
 
 

@@ -135,31 +135,28 @@ public class FinishWork extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                detect_fee = TextUtils.isEmpty(et_detect.getText().toString().trim()) ? "0" : et_detect.getText().toString().trim();
-                material_fee = TextUtils.isEmpty(et_material.getText().toString().trim()) ? "0" : et_material.getText().toString().trim();
-                serve_fee = TextUtils.isEmpty(et_serve.getText().toString().trim()) ? "0" : et_serve.getText().toString().trim();
+
+                detect_fee = et_detect.getText().toString().trim();
+                material_fee =et_material.getText().toString().trim();
+                serve_fee =et_serve.getText().toString().trim();
                 memo = et_memo.getText().toString().trim();
                 guarantee_day=et_day.getText().toString().trim();
-                if (imgPaths.size()!=0){
-                    customDialog.show();
-                    btn_submit.setEnabled(false);
-                    for(int i=0;i<imgPaths.size();i++){
-                        File files=new File(imgPaths.get(i));
-                        compressImg(files);
-                    }
+                /*detect_fee = TextUtils.isEmpty(et_detect.getText().toString().trim()) ? "0" : et_detect.getText().toString().trim();
+                material_fee = TextUtils.isEmpty(et_material.getText().toString().trim()) ? "0" : et_material.getText().toString().trim();
+                serve_fee = TextUtils.isEmpty(et_serve.getText().toString().trim()) ? "0" : et_serve.getText().toString().trim();*/
+                if (TextUtils.isEmpty(detect_fee)||TextUtils.isEmpty(material_fee)||TextUtils.isEmpty(serve_fee)){
+                    displayDialog("请填写账单金额（材料费，检测费，服务费）");
                 }else {
-                    new PromptDialog.Builder(mContext)
-                            .setTitle(R.string.dialog_title)
-                            .setViewStyle(PromptDialog.VIEW_STYLE_TITLEBAR_SKYBLUE)
-                            .setMessage("请选择图片")
-                            .setButton1("确定", new PromptDialog.OnClickListener() {
-
-                                @Override
-                                public void onClick(Dialog dialog, int which) {
-                                    dialog.dismiss();
-
-                                }
-                            }).show();
+                    if (imgPaths.size()!=0){
+                        customDialog.show();
+                        btn_submit.setEnabled(false);
+                        for(int i=0;i<imgPaths.size();i++){
+                            File files=new File(imgPaths.get(i));
+                            compressImg(files);
+                        }
+                    }else {
+                        displayDialog("请选择图片");
+                    }
                 }
             }
         });
@@ -246,6 +243,22 @@ public class FinishWork extends AppCompatActivity {
             }
         });
     }
+
+    private void displayDialog(String s) {
+        new PromptDialog.Builder(mContext)
+                .setTitle(R.string.dialog_title)
+                .setViewStyle(PromptDialog.VIEW_STYLE_TITLEBAR_SKYBLUE)
+                .setMessage(s)
+                .setButton1("确定", new PromptDialog.OnClickListener() {
+
+                    @Override
+                    public void onClick(Dialog dialog, int which) {
+                        dialog.dismiss();
+
+                    }
+                }).show();
+    }
+
     private void compressImg(final File files) {
         Luban.get(this)
                 .load(files)                     //传人要压缩的图片

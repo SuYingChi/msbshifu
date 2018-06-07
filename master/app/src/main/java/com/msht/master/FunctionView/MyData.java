@@ -34,13 +34,14 @@ import java.util.Map;
  */
 
 public class MyData extends AppCompatActivity implements View.OnClickListener {
-
+    private View     layout_code;
     private ImageTextButton btn_my_skill;
     private ImageTextButton btn_my_certificate;
     private TextView tv_phone_num;
     private TextView tv_name;
     private TextView tv_idcard;
     private TextView tv_city;
+    private TextView tv_companyCode;
     private String token;
     private CustomDialog customDialog;
 
@@ -84,9 +85,15 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
         tv_number = (TextView) findViewById(R.id.tv_number);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
         tv_city=(TextView)findViewById(R.id.tv_city);
-
+        tv_companyCode=(TextView)findViewById(R.id.id_company_code);
+        layout_code=findViewById(R.id.id_re_company);
+        String ep_id=(String)SharedPreferencesUtils.getData(getApplicationContext(),SPConstants.EP_ID,"-1");
+        if (ep_id.equals("-1")||ep_id.equals("0")){
+            layout_code.setVisibility(View.GONE);
+        }else {
+            layout_code.setVisibility(View.VISIBLE);
+        }
     }
-
     private void initHeaderTitle() {
         findViewById(R.id.id_goback).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +136,6 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
             object.customDialog.dismiss();
         }
     }
-
     private void getDataSuccess(Message msg) {
         //解析数据
         try{
@@ -147,6 +153,7 @@ public class MyData extends AppCompatActivity implements View.OnClickListener {
                     tv_number.setText(data.number);
                     tv_sex.setText(data.sex);
                     tv_city.setText(data.city_name);
+                    tv_companyCode.setText(data.company_code);
                 }else{
                     //失败
                     CommonMethod.faifure(new WeakReference<Activity>(this),model.error);

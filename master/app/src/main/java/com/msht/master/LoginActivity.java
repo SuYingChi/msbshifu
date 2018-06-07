@@ -68,10 +68,12 @@ public class LoginActivity extends AppCompatActivity {
         String avatar=data.avatar;
         String valid=data.valid+"";
         String token=data.token;
+        String ep_id=data.ep_id+"";
         SharedPreferencesUtils.saveData(getApplicationContext(),"ID",id);
         SharedPreferencesUtils.saveData(getApplicationContext(),"MASTER",masterName);
         SharedPreferencesUtils.saveData(getApplicationContext(),"AVATARURL",avatar);
         SharedPreferencesUtils.saveData(getApplicationContext(),"VALID",valid);
+        SharedPreferencesUtils.saveData(getApplicationContext(),SPConstants.EP_ID,ep_id);
         /**
          * 登陆成功
          */
@@ -101,8 +103,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
         customDialog=new CustomDialog(this, "正在加载");
         Intent data=getIntent();
         state=data.getIntExtra("state",0);

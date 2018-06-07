@@ -15,6 +15,7 @@ public class BasicInfoModel extends BaseModel {
         public String phone;
         public String idCard;
         public String number;
+        public String company_code;
         public double balance;
         public String avatar;
         public String sex;

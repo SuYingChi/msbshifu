@@ -20,10 +20,12 @@ public class IncomeModel extends BaseModel{
         public int order_type;//订单大类Id
         public String parent_type_name;
         public String type_name;
+        public String order_status;
         public double real_amount;
         public double total_amount;
         public double plateform_fee;
         public double quality_assurance_fee;
+        public double reward_amount;
 
     }
 

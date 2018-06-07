@@ -23,7 +23,6 @@ public class CityAdapter extends ListBaseAdapter<CityModel.CityDetail> {
         mContext=context;
         mLayoutInflater = LayoutInflater.from(context);
     }
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         CityModel.CityDetail model = mDataList.get(position);

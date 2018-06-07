@@ -66,7 +66,6 @@ public class MyWallet extends Activity implements SwipeRefreshLayout.OnRefreshLi
     private int pageNo = 1;//当前页数
     private int size = 18;//每页加载的大小
     private TextView header2_tv_month, layout_choose_month;//展示月份
-
     private Handler overViewHandler = new OverViewHandler(this);
     private Handler monthIcomeListHandler = new MonthIncomeListHandler(this);
     private TextView layout_choose_income;

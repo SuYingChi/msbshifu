@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.msht.master.Base.ListBaseAdapter;
 import com.msht.master.Model.EvaluteModel;
 import com.msht.master.R;
@@ -50,12 +51,11 @@ public class MyEvaluteAdapter extends ListBaseAdapter<EvaluteModel.EvaluteDetail
                 viewHolder.img_status.setImageResource(R.drawable.start_five_h);
                 break;
         }
-        Glide
-                .with(mContext)
-                .load(item.user_avatar)
-                .error(R.drawable.default_portrait)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)//deactivate the disk cache for a request.
-                .skipMemoryCache(true)//glide will not put image in the memory cache
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.error(R.drawable.default_portrait);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+        requestOptions.skipMemoryCache(true);
+        Glide.with(mContext).load(item.user_avatar).apply(requestOptions)
                 .into(viewHolder.portrait);
         viewHolder.cn_username.setText(item.username);
         viewHolder.cn_eval_info.setText(item.eval_info);

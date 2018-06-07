@@ -15,11 +15,14 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
+
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,6 +47,7 @@ import com.msht.master.fragment.OrderList;
 import com.msht.master.fragment.OrderListFragment;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
+
 import java.io.File;
 import java.lang.ref.WeakReference;
 
@@ -81,15 +85,11 @@ public class HomePage extends FragmentActivity implements View.OnClickListener {
     private void initView() {
 
         radiogroup_main = (RadioGroup) findViewById(R.id.radiogroup_main);
-
-
         mMessage=(ImageView)findViewById(R.id.id_message);
         mSearch=(ImageView)findViewById(R.id.id_search);
         navigation_tv=(TextView)findViewById(R.id.tv_logo);
         mSearch.setOnClickListener(this);
         mMessage.setOnClickListener(this);
-
-
         radiogroup_main.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

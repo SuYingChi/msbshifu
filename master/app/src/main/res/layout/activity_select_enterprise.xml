@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray"
+    android:orientation="vertical"
+    tools:context="com.msht.master.FunctionView.SelectEnterprise">
+    <include layout="@layout/layout_header"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_orange_corner_boder_inwithte"
+                    android:minHeight="@dimen/margin_40">
+
+                    <ImageView
+                        android:id="@+id/id_img1"
+                        android:layout_width="@dimen/margin_25"
+                        android:layout_height="@dimen/margin_25"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10" />
+
+                    <EditText
+                        android:id="@+id/id_et_epNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:layout_toRightOf="@+id/id_img1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="企业编号"
+                        android:textSize="@dimen/text_14" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/id_btn_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:background="@drawable/bg_common_button"
+                    android:gravity="center"
+                    android:minHeight="@dimen/margin_35"
+                    android:minWidth="@dimen/margin_50"
+                    android:text="查询"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_10"
+                android:background="@color/background_gray" />
+
+            <com.msht.master.UIView.ListViewForScrollView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"></com.msht.master.UIView.ListViewForScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

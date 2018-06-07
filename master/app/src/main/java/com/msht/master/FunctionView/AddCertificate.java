@@ -57,13 +57,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import me.iwf.photopicker.PhotoPicker;
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 import top.zibin.luban.Luban;
+import top.zibin.luban.OnCompressListener;
 
 public class AddCertificate extends AppCompatActivity {
     private ImageView Imgcertificate;
@@ -298,7 +299,6 @@ public class AddCertificate extends AppCompatActivity {
                 .putGear(Luban.THIRD_GEAR)
                 .asObservable()
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
@@ -329,7 +329,6 @@ public class AddCertificate extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         PermissionDog.getInstance().notifyPermissionsChanged(AddCertificate.this, requestCode, permissions, grantResults);
     }
-
 
     private static class AddCertHandler extends BaseHandler<AddCertificate> {
 

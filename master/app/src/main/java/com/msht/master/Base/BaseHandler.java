@@ -15,15 +15,12 @@ import java.lang.ref.WeakReference;
  * Handler的基类，封装了一些需要用到的方法
  * 子类只需要实现这些方法就可以判断网络链接状态
  */
-
 public  abstract class BaseHandler<T> extends Handler {
     private WeakReference<T> ref;
     //弱引用是为了防止内存泄露
-
     public BaseHandler(T object) {
         ref = new WeakReference<>(object);
     }
-
     @Override
     public void handleMessage(Message msg) {
         final T object = ref.get();
@@ -49,14 +46,12 @@ public  abstract class BaseHandler<T> extends Handler {
         }
         onFinilly(object);
     }
-
     /**
      * 网络访问成功的回调
      * @param object hanndler持有的context对象，可能是activity或fragment,取决去传入的T的类型
      * @param msg
      */
     public abstract void onSuccess(T object,Message msg);
-
     /**
      * 网络访问失败的回调
      * @param object
@@ -69,25 +64,21 @@ public  abstract class BaseHandler<T> extends Handler {
             AppToast.makeShortToast(((Fragment) object).getContext(),"网络连接失败");
         }
     }
-
     /**
      * 网络访问发生错误的回调
      * @param object
      */
     public void onError(T object){
         if(object instanceof Activity){
-            AppToast.makeShortToast(((Activity) object).getApplicationContext(),"网络连接失败");
+            AppToast.makeShortToast(((Activity) object).getApplicationContext(),"服务器连接失败");
         }
         if(object instanceof Fragment){
-            AppToast.makeShortToast(((Fragment) object).getContext(),"网络连接失败");
+            AppToast.makeShortToast(((Fragment) object).getContext(),"服务器连接失败");
         }
     }
-
     /**
      * 网络访问完最钟会调用这个方法
      * @param object
      */
-    public void onFinilly(T object){
-
-    }
+    public void onFinilly(T object){}
 }

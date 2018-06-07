@@ -76,7 +76,6 @@ import java.util.Map;
 import me.iwf.photopicker.PhotoPicker;
 import me.iwf.photopicker.PhotoPreview;
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -89,15 +88,18 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
     private MaterialSpinner spinner;
     private RelativeLayout Rfront, Reverse, Rcertificate;
     private RelativeLayout Rdistrict,Rcity;
+    private View layout_enterprise;
     private Button btn_send;
     private ImageView goback, Imgfront, Imgreverse, Imgcertificate;
     private RadioGroup Group;
     private RadioButton radiomale, radiofemale;
+    private TextView tv_enterprise;
     private TextView tv_city,tv_district;
     private EditText et_mastername, et_address, et_idcard;
     private EditText et_certName, et_date;
     private CheckBox box_date;
     private String mCity="海口";
+    private String ep_id="-1";
     private String city_id;
     private String regionId="";
     private String token, sex = "1";
@@ -117,6 +119,7 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
     private int CODE = 3;
     private final int AREA_CODE=7;
     private final int CITY_CODE=6;
+    private final int EP_CODE=8;
     private Context mContext;
     private CustomDialog customDialog;
     private ArrayList<Integer> selectedSkill = new ArrayList<>();
@@ -222,8 +225,10 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
         et_certName = (EditText) findViewById(R.id.id_et_certName);
         et_date = (EditText) findViewById(R.id.id_year);
         box_date = (CheckBox) findViewById(R.id.id_year_radio);
+        tv_enterprise=(TextView)findViewById(R.id.id_tv_enterprise);
         tv_city=(TextView)findViewById(R.id.id_tv_city) ;
         tv_district=(TextView)findViewById(R.id.id_tv_district);
+        layout_enterprise=findViewById(R.id.id_re_enterprise);
         Rcity=(RelativeLayout)findViewById(R.id.id_re_city);
         Rdistrict=(RelativeLayout)findViewById(R.id.id_re_district);
         Rfront = (RelativeLayout) findViewById(R.id.id_rela_img1);
@@ -273,6 +278,13 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                     intent.putExtra("cityid",city_id);
                     startActivityForResult(intent,AREA_CODE);
                 }
+            }
+        });
+        layout_enterprise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext,SelectEnterprise.class);
+                startActivityForResult(intent,EP_CODE);
             }
         });
         Rfront.setOnClickListener(this);
@@ -328,7 +340,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                         fileParams.put("img", cert_file);
                         SendRequestUtils.PostFileToServer(textParams, fileParams, validateURL, certHandler);
                     }
-
                     customDialog.show();
 
                     String name = et_mastername.getText().toString().trim();
@@ -343,6 +354,7 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                     textParams.put("city_id",city_id);
                     textParams.put("address", address);
                     textParams.put("idCard", idCard);
+                    textParams.put("ep_id",ep_id);
                     textParams.put("experience_year", experience);
                     textParams.put("service_district", districtId);
                     textParams.put("categories", skillId);
@@ -376,7 +388,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
         }
         return result.toString();
     }
-
     private boolean matchjudge(String skillids, String regionids, File front_file, File reverse_file) {
         if (skillids.equals("") || regionids.equals("") || front_file == null || reverse_file == null) {
             new PromptDialog.Builder(this)
@@ -394,7 +405,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             return true;
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -412,8 +422,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                 } else {
                     AppToast.makeShortToast(this, "选择了不能使用的图片");
                 }
-
-
             }
         }
         if (resultCode == RESULT_OK &&
@@ -444,7 +452,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                 } else {
                     AppToast.makeShortToast(this, "选择了不能使用的图片");
                 }
-
             }
         }
         if (requestCode==CITY_CODE&&resultCode==3){
@@ -460,15 +467,18 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             String districtName=data.getStringExtra("districtName");
             tv_district.setText(districtName);
         }
+        if (requestCode==EP_CODE&&resultCode==5){
+            ep_id=data.getStringExtra("ep_id");
+            String company_code=data.getStringExtra("company_code");
+            tv_enterprise.setText(company_code);
+        }
     }
-
     private void compressImg(File file_two) {
         Luban.get(this)
                 .load(file_two)
                 .putGear(Luban.THIRD_GEAR)
                 .asObservable()
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
@@ -501,8 +511,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
                 });
 
     }
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -523,7 +531,6 @@ public class ApplyIdentify extends AppCompatActivity implements View.OnClickList
             public void allallow() {
                 getphoto();
             }
-
             @Override
             public void multi(String[] granteds, String[] denieds, String[] nevershows) {
                 if (nevershows.length != 0) {

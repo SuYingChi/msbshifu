@@ -18,4 +18,5 @@ public class SPConstants {
     public static final String DOWNLOAD_NEW_VERSION_ID="download_new_version_id";
 
     public static final String TOKEN="TOKEN";
+    public static final String  EP_ID="EP_ID";
 }

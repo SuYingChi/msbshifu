@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.msht.master.Base.BaseHandler;
 import com.msht.master.Common.CommonMethod;
@@ -30,6 +31,7 @@ import com.msht.master.Constants.NetConstants;
 import com.msht.master.Constants.SPConstants;
 import com.msht.master.Controls.MyFragmentButton;
 import com.msht.master.FunctionView.BankCard;
+import com.msht.master.FunctionView.EnterpriseWallet;
 import com.msht.master.FunctionView.LearnRule;
 import com.msht.master.FunctionView.MyEvaluteActivity;
 import com.msht.master.FunctionView.MyWallet;
@@ -71,7 +73,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private MyFragmentButton mb_my_bankcark;
     private MyFragmentButton mb_my_wallet;
     private MyFragmentButton mb_my_evalute;
-
+    private View    line;
     private Handler getBasicInfoHandler=new GetBasicInfoHandler(this);
     private Button btn_buy_insurance;
     private RelativeLayout learn_rule;
@@ -92,13 +94,18 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 if (model.result.equals("success")) {
                     //更新数据
                     BasicInfoModel.BasicInfoDetail data = model.data;
-                    Glide
+                    RequestOptions requestOptions = new RequestOptions();
+                    requestOptions.error(R.drawable.default_portrait);
+                    requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+                    requestOptions.skipMemoryCache(true);
+                    Glide.with(this).load(data.avatar).apply(requestOptions).into(avatarimg);
+                   /* Glide
                             .with(this)
                             .load(data.avatar)
                             .error(R.drawable.default_portrait)
                             .diskCacheStrategy(DiskCacheStrategy.NONE)//deactivate the disk cache for a request.
                             .skipMemoryCache(true)//glide will not put image in the memory cache
-                            .into(avatarimg);
+                            .into(avatarimg);*/
                     tv_name.setText(data.name);
                     tv_balance.setText("¥ " + data.balance);
                     number = data.number;
@@ -158,33 +165,32 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         avatarimg = (CircleImageView) view.findViewById(R.id.id_portrait);
         tv_name = (TextView) view.findViewById(R.id.id_mastername);
         tv_balance = (TextView) view.findViewById(R.id.id_balance);
-
+        line=view.findViewById(R.id.id_line);
         mb_my_bankcark = (MyFragmentButton) view.findViewById(R.id.mb_my_bankcark);
         mb_my_wallet = (MyFragmentButton) view.findViewById(R.id.mb_my_wallet);
         mb_my_evalute = (MyFragmentButton) view.findViewById(R.id.mb_my_evalute);
-
         learn_rule = (RelativeLayout)view.findViewById(R.id.learn_rule);
-
         btn_buy_insurance = (Button) view.findViewById(R.id.btn_buy_insurance);
-
-
-
+        String ep_id=(String)SharedPreferencesUtils.getData(getActivity(),SPConstants.EP_ID,"-1");
+        if (ep_id.equals("-1")||ep_id.equals("0")){
+            mb_my_bankcark.setVisibility(View.VISIBLE);
+            line.setVisibility(View.VISIBLE);
+        }else {
+            mb_my_bankcark.setVisibility(View.GONE);
+            line.setVisibility(View.GONE);
+        }
     }
-
     private void initEvent() {
-
         Raboutmine.setOnClickListener(this);
         Rhotline.setOnClickListener(this);
         Rprice.setOnClickListener(this);
         Rmydata.setOnClickListener(this);
-
         mb_my_bankcark.setOnClickListener(this);
         mb_my_evalute.setOnClickListener(this);
         mb_my_wallet.setOnClickListener(this);
         btn_buy_insurance.setOnClickListener(this);
         learn_rule.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -211,8 +217,14 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 startActivity(bankcard);
                 break;
             case R.id.mb_my_wallet:
-                Intent wallet = new Intent(getActivity(), MyWallet.class);
-                startActivityForResult(wallet, 1);
+                String ep_id=(String)SharedPreferencesUtils.getData(getActivity(),SPConstants.EP_ID,"-1");
+                if (ep_id.equals("-1")||ep_id.equals("0")){
+                    Intent wallet = new Intent(getActivity(), MyWallet.class);
+                    startActivityForResult(wallet, 1);
+                }else {
+                    Intent wallet = new Intent(getActivity(), EnterpriseWallet.class);
+                    startActivityForResult(wallet, 1);
+                }
                 break;
             case R.id.mb_my_evalute:
                 Intent evalute = new Intent(getActivity(), MyEvaluteActivity.class);

@@ -21,14 +21,12 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="actionBarSize">@dimen/actionBarSize</item>
     </style>
-
     <style name="customTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="actionBarTheme">@style/actionBarTheme</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="actionBarSize">@dimen/actionBarSize</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
-
     <style name="CustomDialog">
         <item name="android:windowFrame">@null</item><!--边框-->
         <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->

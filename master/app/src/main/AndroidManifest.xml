@@ -48,15 +48,31 @@
             android:theme="@style/LauncherThemes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="wx926364ece1cbfa7b" />
                 //写入你的appid
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                tools:replace="android:resource" />
+        </provider>
+
         <activity android:name=".FunctionView.MyWallet" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomePage" />
@@ -70,10 +86,12 @@
         <activity
             android:name="me.iwf.photopicker.PhotoPagerActivity"
             android:theme="@style/customTheme" />
+
         <service
             android:name=".Common.DownloadService"
             android:enabled="true"
             android:exported="true" />
+
         <activity android:name=".FunctionView.BankCard" />
         <activity android:name=".FunctionView.AddBankCard" />
         <activity android:name=".FunctionView.QualityAssurance" />
@@ -156,6 +174,9 @@
         <activity android:name=".FunctionView.NewPriceBook" />
         <activity android:name=".FunctionView.PriceTable" />
         <activity android:name=".FunctionView.SearchOrder" />
-        <activity android:name=".FunctionView.ConvertOrderReson"></activity>
+        <activity android:name=".FunctionView.ConvertOrderReson" />
+        <activity android:name=".FunctionView.SelectEnterprise" />
+        <activity android:name=".FunctionView.EnterpriseWallet"></activity>
     </application>
+
 </manifest>

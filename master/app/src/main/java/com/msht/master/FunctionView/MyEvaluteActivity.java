@@ -39,7 +39,6 @@ import com.msht.master.Utils.AppToast;
 import com.msht.master.Utils.DialogUtil;
 import com.msht.master.Utils.SendRequestUtils;
 import com.msht.master.Utils.SharedPreferencesUtils;
-import com.squareup.leakcanary.RefWatcher;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -282,7 +281,7 @@ public class MyEvaluteActivity extends Activity implements SwipeRefreshLayout.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = MyApplication.getRefWatcher(getApplicationContext());
-        refWatcher.watch(this);
+        /*RefWatcher refWatcher = MyApplication.getRefWatcher(getApplicationContext());
+        refWatcher.watch(this);*/
     }
 }

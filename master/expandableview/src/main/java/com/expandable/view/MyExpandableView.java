@@ -26,25 +26,19 @@ public class MyExpandableView extends RelativeLayout {
     private static final int DURATION = 400;
     private float DEGREES=180f;
     private RelativeLayout clickableLayout;
-
     private LinearLayout contentLayout;
-
     private List<ViewGroup> outsideContentLayoutList;
-
     private int outsideContentHeight = 0;
-
     private ImageView iv_item_image;
-
     private ImageView rightIcon;
-
     private ValueAnimator animator;
     private RotateAnimation rotateAnimator;
     private TextView tv_order_num;
     private TextView tv_finish_time;
     private TextView tv_main_type;
+    private TextView tv_order_status;
     private TextView tv_second_type;
     private TextView tv_real_amount;
-
     public MyExpandableView(Context context) {
         super(context);
         init();
@@ -67,7 +61,7 @@ public class MyExpandableView extends RelativeLayout {
         tv_main_type = (TextView) findViewById(R.id.tv_main_type);
         tv_second_type = (TextView) findViewById(R.id.tv_second_type);
         tv_real_amount = (TextView) findViewById(R.id.tv_real_amount);
-
+        tv_order_status=(TextView) findViewById(R.id.id_order_status);
         clickableLayout = (RelativeLayout) findViewById(R.id.expandable_view_clickable_content);
         contentLayout = (LinearLayout) findViewById(R.id.expandable_view_content_layout);
         iv_item_image = (ImageView) findViewById(R.id.iv_item_image);
@@ -113,6 +107,9 @@ public class MyExpandableView extends RelativeLayout {
         tv_second_type.setText(text);
     }
     public void SetRealAmount(String text){tv_real_amount.setText(text);}
+    public void SetorderStatus(String text){
+        tv_order_status.setText(text);
+    }
     public void setImage(int leftResId){
         if (leftResId == 0) {
             iv_item_image.setVisibility(GONE);

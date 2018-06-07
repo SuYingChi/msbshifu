@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.msht.master.R;
 
 import java.util.List;
@@ -163,13 +164,19 @@ public class FullScreenDialogFragment extends DialogFragment {
 
                 }
             });
-            Glide
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.placeholder(R.drawable.shape_ring_loading);
+            requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+            requestOptions.skipMemoryCache(false);
+            Glide.with(mContext).load(mListImgUrls.get(position))
+                    .apply(requestOptions).into(photoView);
+           /* Glide
                     .with(mContext)
                     .load(mListImgUrls.get(position))
                     .placeholder(R.drawable.shape_ring_loading)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)//deactivate the disk cache for a request.
                     .skipMemoryCache(false)//glide will not put image in the memory cache
-                    .into(photoView);
+                    .into(photoView);*/
 
             // Now just add PhotoView to ViewPager and return it
             container.addView(photoView, ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT);

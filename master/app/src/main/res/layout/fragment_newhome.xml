@@ -82,7 +82,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/margin_20"
                             android:text="师傅"
-                            android:layout_centerVertical="true"
                             android:textColor="@color/title"
                             android:textSize="@dimen/text_18"/>
                         <Button
@@ -99,10 +98,10 @@
                             android:id="@+id/tv_freeze"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="20dp"
                             android:padding="2dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/id_mastername"
+                            android:layout_below="@+id/id_mastername"
+                            android:layout_marginTop="@dimen/margin_8"
                             android:background="@color/colorPrimary"
                             android:text="您已被冻结"
                             android:textColor="@color/white"

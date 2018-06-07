@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.msht.master.Base.ListBaseAdapter;
 import com.msht.master.Model.CertificateModel;
 import com.msht.master.Model.InformModel;
@@ -38,7 +39,14 @@ public class CertificateAdapter extends ListBaseAdapter<CertificateModel.Certifi
         viewHolder.id_tv_cert.setText(certificateDetail.name);
         viewHolder.id_tv_time.setText(certificateDetail.effective_time);
         viewHolder.tv_cert_num.setText(TextUtils.isEmpty(certificateDetail.number)?"无":certificateDetail.number);
-        Glide
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.error(R.drawable.shape_ring_loading);
+        requestOptions.placeholder(R.drawable.shape_ring_loading);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+        requestOptions.skipMemoryCache(false);
+        Glide.with(mContext).load(certificateDetail.img).apply(requestOptions)
+                .thumbnail(0.1f).into(((CertificateViewHolder) holder).iv_cert);
+        /*Glide
                 .with(mContext)
                 .load(certificateDetail.img)
                 .error(R.drawable.shape_ring_loading)
@@ -46,7 +54,7 @@ public class CertificateAdapter extends ListBaseAdapter<CertificateModel.Certifi
                 .diskCacheStrategy(DiskCacheStrategy.ALL)//deactivate the disk cache for a request.
                 .skipMemoryCache(false)//glide will not put image in the memory cache
                 .thumbnail(0.1f)
-                .into(((CertificateViewHolder) holder).iv_cert);
+                .into(((CertificateViewHolder) holder).iv_cert);*/
     }
 
     @Override

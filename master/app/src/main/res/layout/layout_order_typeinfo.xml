@@ -41,10 +41,11 @@
         android:layout_marginTop="@dimen/margin_10"
         android:layout_below="@+id/id_text1"
         android:layout_toRightOf="@+id/id_text2"
+        android:layout_toLeftOf="@+id/id_tv_status"
+        android:layout_marginRight="@dimen/margin_5"
         android:layout_marginLeft="@dimen/margin_10"
         android:textSize="@dimen/text_16"
-        android:textColor="@color/title"
-        android:text="维修类型"/>
+        android:textColor="@color/title" />
     <TextView
         android:id="@+id/id_text3"
         android:layout_width="wrap_content"

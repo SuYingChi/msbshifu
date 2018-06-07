@@ -10,6 +10,12 @@
     <string name="price_book">价格手册</string>
     <string name="listview_buttom_text">暂无数据</string>
     <string name="my_income">我的收入：</string>
+    <string name="order_amount">有效订单量</string>
+    <string name="total_income_text">订单总收入</string>
+    <string name="good_award_text">好评奖励</string>
+    <string name="default_text">xxxxxx</string>
+    <string name="company_code">企业编号</string>
+    <string name="company_name">企业名称</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_workorder_details">WorkorderDetails</string>
 

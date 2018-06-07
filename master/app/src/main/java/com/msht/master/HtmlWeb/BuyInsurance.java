@@ -52,7 +52,8 @@ public class BuyInsurance extends AppCompatActivity {
                     String username = model.data.username;
                     String phone = model.data.phone;
                     String idCard = model.data.idCard;
-                    String url = "http://wxmsb.cpic.com.cn/fmsb/xpxhtml/pagebeijin/b01.html?empNo=HANZ5643&productCode=GY0617_01&productType=qxb&productName=*%25EF%25BD%25BA%250F%2516$%25EF%25BD%25B3%25EF%25BE%259Di%2508%2511%251F%25E4%25BA%25A4&insuranceAmount=220000&money=1.00&countCode=HANZ5643&delayedDay=1&" + String.format("parentName=%s&parentIdNum=%s&parentTel=%s", username, idCard, phone);
+                   // String url = "http://wxmsb.cpic.com.cn/fmsb/xpxhtml/pagebeijin/b01.html?empNo=HANZ5643&productCode=GY0617_01&productType=qxb&productName=*%25EF%25BD%25BA%250F%2516$%25EF%25BD%25B3%25EF%25BE%259Di%2508%2511%251F%25E4%25BA%25A4&insuranceAmount=220000&money=1.00&countCode=HANZ5643&delayedDay=1&" + String.format("parentName=%s&parentIdNum=%s&parentTel=%s", username, idCard, phone);
+                    String url ="http://wxmsb.cpic.com.cn/fmsb/xpxhtml/pagebeijin/b01.html?empNo=HAN30321&productCode=GY0617_01&productType=qxb&productName=*%EF%BD%BA%0F%16$%EF%BD%B3%EF%BE%9Di%08%11%1F%E4%BA%A4&insuranceAmount=220000&money=1.00&countCode=HAN30321&delayedDay=1&" + String.format("parentName=%s&parentIdNum=%s&parentTel=%s", username, idCard, phone);
                     /**
                      * http://wxmsb.cpic.com.cn/fmsb/xpxhtml/pagebeijin/b01.html?empNo=HANZ5643&productCode=GY0617_01&productType=qxb&productName=*%25EF%25BD%25BA%250F%2516$%25EF%25BD%25B3%25EF%25BE%259Di%2508%2511%251F%25E4%25BA%25A4&insuranceAmount=220000&money=1.00&countCode=HANZ5643&delayedDay=1&parentName=张三&parentIdNum=32118119921028281X&parentTel=15396961809
                      */
